@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
@@ -10,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { GlampingComponent } from './components/glamping/glamping.component';
+import { ProductCategoryMenuComponent } from './components/merchandise/product-category-menu/product-category-menu.component';
+import { ProductListComponent } from './components/merchandise/product-list/product-list.component';
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -21,16 +25,19 @@ import { GlampingComponent } from './components/glamping/glamping.component';
     routingComponents,
     ContentComponent,
     AnimalsComponent,
-    GlampingComponent
+    GlampingComponent,
+    ProductCategoryMenuComponent,
+    ProductListComponent
     
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     SwiperModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
