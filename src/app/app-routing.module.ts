@@ -30,5 +30,6 @@ export const routingComponents = [
   AnimalsComponent,
   ProjectsPageComponent,
   LambPageComponent,
-  GlampingComponent
+  GlampingComponent,
+  ProductListComponent
 ]
