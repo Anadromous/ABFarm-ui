@@ -7,6 +7,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
@@ -18,7 +19,7 @@ export class ProductListComponent implements OnInit {
 
   listProducts(){
     this.productService.getProductList().subscribe(
-      data => {
+      (data: Product[]) => {
         this.products=data;
       }
     )
