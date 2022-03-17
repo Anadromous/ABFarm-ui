@@ -13,9 +13,14 @@ const routes: Routes = [
   {path: 'our-farm', component: OurFarmPageComponent},
   {path: 'animals', component: AnimalsComponent},
   {path: 'projects', component: ProjectsPageComponent},
+  {path: 'category/:id', component: ProductListComponent},
+  {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'order-lamb', component: LambPageComponent},
-  {path: 'glamping', component: GlampingComponent}
+  {path: 'glamping', component: GlampingComponent},
+  {path: '', redirectTo: '/app-main', pathMatch: 'full'},
+  {path: '**', redirectTo: '/app-main', pathMatch: 'full'}
+  //{path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
