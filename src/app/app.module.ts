@@ -15,6 +15,7 @@ import { ProductCategoryMenuComponent } from './components/merchandise/product-c
 import { ProductListComponent } from './components/merchandise/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
+import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CategoryMenuComponent } from './components/category-menu/category-menu.
     GlampingComponent,
     ProductCategoryMenuComponent,
     ProductListComponent,
-    CategoryMenuComponent
+    CategoryMenuComponent,
+    ProductDetailsComponent
     
   ],
   imports: [

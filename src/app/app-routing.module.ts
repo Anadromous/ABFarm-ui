@@ -8,6 +8,7 @@ import { ProductListComponent } from './components/merchandise/product-list/prod
 import { OurFarmPageComponent } from './components/our-farm-page/our-farm-page.component';
 import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
+import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 
 const routes: Routes = [
   {path: 'app-main', component: MainComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'order-lamb', component: LambPageComponent},
   {path: 'glamping', component: GlampingComponent},
   {path: '', redirectTo: '/app-main', pathMatch: 'full'},
