@@ -6,6 +6,7 @@ import { LambPageComponent } from './components/lamb-page/lamb-page.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductListComponent } from './components/merchandise/product-list/product-list.component';
 import { OurFarmPageComponent } from './components/our-farm-page/our-farm-page.component';
+import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
 
 const routes: Routes = [
@@ -36,5 +37,6 @@ export const routingComponents = [
   ProjectsPageComponent,
   LambPageComponent,
   GlampingComponent,
-  ProductListComponent
+  ProductListComponent,
+  CategoryMenuComponent
 ]

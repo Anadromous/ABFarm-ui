@@ -14,7 +14,7 @@ import { GlampingComponent } from './components/glamping/glamping.component';
 import { ProductCategoryMenuComponent } from './components/merchandise/product-category-menu/product-category-menu.component';
 import { ProductListComponent } from './components/merchandise/product-list/product-list.component';
 import { ProductService } from './services/product.service';
-
+import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ProductService } from './services/product.service';
     AnimalsComponent,
     GlampingComponent,
     ProductCategoryMenuComponent,
-    ProductListComponent
+    ProductListComponent,
+    CategoryMenuComponent
     
   ],
   imports: [
