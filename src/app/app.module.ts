@@ -16,6 +16,7 @@ import { ProductListComponent } from './components/merchandise/product-list/prod
 import { ProductService } from './services/product.service';
 import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
+import { CartStatusComponent } from './components/merchandise/cart-status/cart-status.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductDetailsComponent } from './components/merchandise/product-detail
     ProductCategoryMenuComponent,
     ProductListComponent,
     CategoryMenuComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartStatusComponent
     
   ],
   imports: [

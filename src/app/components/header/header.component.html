@@ -1,32 +1,37 @@
 <header class="header-navber-area">
-    <nav class="navbar navbar-b navbar-trans navbar-expand-lg" id="mainNav" style="background-color: rgb(255, 255, 255);">
+    <nav class="navbar navbar-b navbar-trans navbar-expand-lg" id="mainNav"
+        style="background-color: rgb(255, 255, 255);">
         <div class="container">
             <img src="assets/logos/logo-spade.png" class="white-logo" alt="logo" width="50" height="50">
             <img src="assets/logos/logo-dark.png" class="white-logo" alt="logo" width="50" height="50">
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"> <span></span>  <span></span>  <span></span> 
-        </button>
+            <!--<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+                aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"> <span></span>
+                <span></span> <span></span>
+            </button>-->
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
                 <a routerLink="/app-main" routerLinkActive="active-link" class="nav-item nav-link active">Home</a>
-                    <a routerLink="/our-farm" routerLinkActive="active" class="nav-item nav-link active">Our Farm</a>
-                    <a routerLink="/animals" routerLinkActive="active"class="nav-item nav-link active">Our Animals</a>
-                    <a routerLink="/projects" routerLinkActive="active"class="nav-item nav-link active">Projects</a>
-                    <a routerLink="/glamping" routerLinkActive="active" class="nav-item nav-link active">Farm Stay</a>
-                    
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-item nav-link active dropdown-toggle" data-bs-toggle="dropdown">Merchandise</a>
-                        <div class="dropdown-menu">
-                            <app-category-menu></app-category-menu>
-                        </div>
+                <a routerLink="/our-farm" routerLinkActive="active" class="nav-item nav-link active">Our Farm</a>
+                <a routerLink="/animals" routerLinkActive="active" class="nav-item nav-link active">Animals</a>
+                <a routerLink="/projects" routerLinkActive="active" class="nav-item nav-link active">Projects</a>
+                <a routerLink="/glamping" routerLinkActive="active" class="nav-item nav-link active">Farm Stay</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-item nav-link active dropdown-toggle"
+                        data-bs-toggle="dropdown">Merchandise</a>
+                    <div class="dropdown-menu">
+                        <app-category-menu></app-category-menu>
                     </div>
-                    <a routerLink="/order-lamb" routerLinkActive="active" class="nav-item nav-link active">Order Lamb</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <ul>
-                    <li class="nav-item book-now"><a class="nav-link js-scroll" href="#"><i class="fa fa-calendar-check-o"></i> Book a Stay</a></li>
+                </div>
+                <a routerLink="/order-lamb" routerLinkActive="active" class="nav-item nav-link active">Order Lamb</a>
+                &nbsp;&nbsp;&nbsp;
+                <ul>
+                    <li class="nav-item book-now"><a class="nav-link js-scroll" href="#"><i
+                                class="fa fa-calendar-check-o"></i> Book a Stay</a></li>
                 </ul>
+                <app-cart-status></app-cart-status>
             </div>
         </div>
         <div class="main-menu">
-            
+
         </div>
     </nav>
 </header>
