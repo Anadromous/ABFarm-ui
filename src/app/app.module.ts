@@ -18,6 +18,7 @@ import { CategoryMenuComponent } from './components/category-menu/category-menu.
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 import { CartStatusComponent } from './components/merchandise/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
+import { ContactUsComponent } from './components/our-farm-page/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CartDetailsComponent } from './components/merchandise/cart-details/cart
     CategoryMenuComponent,
     ProductDetailsComponent,
     CartStatusComponent,
-    CartDetailsComponent
+    CartDetailsComponent,
+    ContactUsComponent
     
   ],
   imports: [
