@@ -17,6 +17,7 @@ import { ProductService } from './services/product.service';
 import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 import { CartStatusComponent } from './components/merchandise/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CartStatusComponent } from './components/merchandise/cart-status/cart-s
     ProductListComponent,
     CategoryMenuComponent,
     ProductDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
     
   ],
   imports: [

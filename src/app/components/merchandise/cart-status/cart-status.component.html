@@ -1,8 +1,8 @@
 <div class="cart-area d-n">
-    <a href="shopping-detail.html">
-        <div class="total">19.29
-            <span>3</span>
+    <a routerLink="/cart-details">
+        <div class="total">{{ totalPrice | currency: 'USD'}}
+            <span>{{ totalQuantity }}</span>
         </div>
-        <i class="fa fa-shopping-cart" aria-hidden="false"></i>
+        <i class="fa-solid fa-cart-shopping" aria-hidden="false"></i>
     </a>
 </div>
