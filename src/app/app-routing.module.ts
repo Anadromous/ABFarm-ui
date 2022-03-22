@@ -10,6 +10,7 @@ import { CategoryMenuComponent } from './components/category-menu/category-menu.
 import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
+import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 
 const routes: Routes = [
   {path: 'app-main', component: MainComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'cart-details', component: CartDetailsComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'order-lamb', component: LambPageComponent},
   {path: 'glamping', component: GlampingComponent},

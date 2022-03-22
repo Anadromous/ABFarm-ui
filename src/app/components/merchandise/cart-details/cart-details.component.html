@@ -1,5 +1,5 @@
 <div class="main-content cart-details">
-    <div class="section-content section-content-p3o">
+    <div class="section-content section-content-p30">
         <div class="container-fluid">
             <div *ngIf="cartItems.length > 0">
                 <table class="table table-bordered">
@@ -28,13 +28,14 @@
                                     {{ tempCartItem.quantity }}
                                 </div>
                                 <div class="col">
-                                    <button class="btn btn-primary btn-sm">
+                                    <button (click)="decrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
                                         <i class="fas fa-minus"></i>
                                     </button>
                                 </div>
                                 <div class="col-8"></div>
                             </div>
                         </div>
+                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">Remove</button>
                         <p class="mt-2">SubTotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency: 'USD'}}
                         </p>
                     </tr>
@@ -43,6 +44,8 @@
                         <td style="font-weight: bold;">
                             <p>Total Quantity: {{ totalQuantity }}</p>
                             <p>Shipping: Free</p>
+                            <p>Total Price: {{ totalPrice }}</p>
+                            <a routerLink="/checkout" class="btn btn-primary btn-sm">Checkout</a>
                         </td>
                     </tr>
                 </table>

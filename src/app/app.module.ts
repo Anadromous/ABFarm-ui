@@ -19,6 +19,7 @@ import { ProductDetailsComponent } from './components/merchandise/product-detail
 import { CartStatusComponent } from './components/merchandise/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 import { ContactUsComponent } from './components/our-farm-page/contact-us/contact-us.component';
+import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContactUsComponent } from './components/our-farm-page/contact-us/contac
     ProductDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CheckoutComponent
     
   ],
   imports: [
