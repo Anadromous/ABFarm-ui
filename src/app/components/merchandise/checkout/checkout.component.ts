@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CheckoutformService } from 'src/app/services/checkoutform.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,19 +8,81 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  [x: string]: any;
 
   checkoutFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  totalPrice: number = 0;
+  totalQuantity: number = 0;
+  creditcardYears: number[]=[];
+  creditcardMonths: number[]=[];
+  
+  constructor(private formBuilder: FormBuilder, private checkoutFormService: CheckoutformService) { }
 
   ngOnInit(): void {
+    
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName:[''],
-        lastName:[''],
-        email:['']
+        firstName: [''],
+        lastName: [''],
+        email: ['']
+      }),
+      shippingAddress: this.formBuilder.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+        zipCode: ['']
+      }),
+      billingAddress: this.formBuilder.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+        zipCode: ['']
+      }),
+      creditCard: this.formBuilder.group({
+        cardType: [''],
+        nameOnCard: [''],
+        cardNumber: [''],
+        securityCode: [''],
+        expirationMonth: [''],
+        expirationYear: ['']
       })
     });
+
+    //populate credit card months and years
+    const startMonth: number = new Date().getMonth()+1;
+    this.checkoutFormService.getCreditCardMonths(startMonth).subscribe(
+      data => {
+        console.log("Retrieved credit card months " +JSON.stringify(data));
+        this.creditcardMonths=data;
+      }
+    ) 
+
+    this.checkoutFormService.getCreditCardYears().subscribe(
+      data => {
+        console.log("Retrieved credit card years: " +JSON.stringify(data));
+        this.creditcardYears=data;
+      }
+    )
   }
 
+  copyShippingAddressToBillingAddress(event) {
+
+    if (event.target.checked) {
+      this.checkoutFormGroup.controls['billingAddress']
+            .setValue(this.checkoutFormGroup.controls['shippingAddress'].value);
+    }
+    else {
+      this.checkoutFormGroup.controls['billingAddress'].reset();
+    }
+    
+  }
+
+  onSubmit() {
+    console.log("Handling the submit button");
+    console.log(this.checkoutFormGroup.get('customer').value);
+    console.log("The email address is " + this.checkoutFormGroup.get('customer').value.email);
+  }
 }
