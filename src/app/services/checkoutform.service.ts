@@ -22,7 +22,7 @@ export class CheckoutformService {
     }
 
     getStates(theCountryCode: string): Observable<State[]> {
-
+      console.log("Getting States for "+theCountryCode);
       // search url
       const searchStatesUrl = `${this.statesUrl}/search/findByCountryCode?code=${theCountryCode}`;
   
