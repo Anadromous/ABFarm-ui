@@ -20,6 +20,7 @@ import { CartStatusComponent } from './components/merchandise/cart-status/cart-s
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 import { ContactUsComponent } from './components/our-farm-page/contact-us/contact-us.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
+import { LoginStatusComponent } from './components/security/login-status/login-status.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CheckoutComponent } from './components/merchandise/checkout/checkout.co
     CartStatusComponent,
     CartDetailsComponent,
     ContactUsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoginStatusComponent
     
   ],
   imports: [
