@@ -22,6 +22,8 @@ import { ContactUsComponent } from './components/our-farm-page/contact-us/contac
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 import { LoginStatusComponent } from './components/security/login-status/login-status.component';
 import { ProduceService } from './services/produce.service';
+import { LambFormComponent } from './components/Produce/lamb-form/lamb-form.component';
+import { ProduceFormComponent } from './components/Produce/produce-form/produce-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ProduceService } from './services/produce.service';
     CartDetailsComponent,
     ContactUsComponent,
     CheckoutComponent,
-    LoginStatusComponent
+    LoginStatusComponent,
+    LambFormComponent,
+    ProduceFormComponent
     
   ],
   imports: [

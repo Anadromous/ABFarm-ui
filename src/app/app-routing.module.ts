@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { GlampingComponent } from './components/glamping/glamping.component';
-import { LambPageComponent } from './components/lamb-page/lamb-page.component';
+import { LambFormComponent } from './components/Produce/lamb-form/lamb-form.component';
 import { MainComponent } from './components/main/main.component';
 import { ProductListComponent } from './components/merchandise/product-list/product-list.component';
 import { OurFarmPageComponent } from './components/our-farm-page/our-farm-page.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
-  {path: 'order-lamb', component: LambPageComponent},
+  {path: 'order-lamb', component: LambFormComponent},
   {path: 'glamping', component: GlampingComponent},
   {path: '', redirectTo: '/app-main', pathMatch: 'full'},
   {path: '**', redirectTo: '/app-main', pathMatch: 'full'}
@@ -41,7 +41,7 @@ export const routingComponents = [
   OurFarmPageComponent,
   AnimalsComponent,
   ProjectsPageComponent,
-  LambPageComponent,
+  LambFormComponent,
   GlampingComponent,
   ProductListComponent,
   CategoryMenuComponent
