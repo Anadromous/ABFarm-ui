@@ -21,6 +21,7 @@ import { CartDetailsComponent } from './components/merchandise/cart-details/cart
 import { ContactUsComponent } from './components/our-farm-page/contact-us/contact-us.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 import { LoginStatusComponent } from './components/security/login-status/login-status.component';
+import { ProduceService } from './services/produce.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { LoginStatusComponent } from './components/security/login-status/login-s
     SwiperModule,
     ReactiveFormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,ProduceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

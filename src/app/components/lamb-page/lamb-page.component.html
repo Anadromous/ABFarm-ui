@@ -1,9 +1,12 @@
-<p>Welcome to the lamb&nbsp;order form page.&nbsp; You can purchase lamb&nbsp;by the piece or whole.&nbsp; Payment is
-    accepted by cash, check, credit card, Zelle (by way of 541.207.4541) or through friends and family PayPal account
-    via aprildove@gmail.com. &nbsp; Please allow 1-2 days for a response Monday - Friday (closed Saturday and
-    Sunday).&nbsp; Whole lambs&nbsp;are $5/lb plus processing fees,&nbsp; please check for availability.</p>
-
-<!-- begin form -->
+<div class="container" style="width:70%">
+<p style="padding-top: 150px;">Welcome to the lamb order form page. All of our lamb is %100 grass fed and we 
+    never use hormones or growth suppliments.<br>
+    You can purchase lamb by the piece or whole. <br>Payment is
+    accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal account
+    via chapman@appleblossomfarm.com. <br>Whole and half lambs are $9/lb plus processing fees,  
+    please check below for availability.</p>
+</div>
+ <!--begin form -->
 <div class="container" style="width:70%">
     <h1>Lamb Order Form</h1>
     <div class="row">
@@ -16,31 +19,41 @@
         <div class="col-sm">
 
         </div>
+        <span class="border-bottom border-secondary"></span>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 offset-md-1">
-            Chops (2 per package / 2 lbs./package)
+    <div class="row gy-3" *ngFor="let tempProduce of produces">
+        <div class="col-md-6 offset-md-1">
+            {{ tempProduce.name}} - {{ tempProduce.description }}
         </div>
         <div class="col-md-1">
-            $9/lb.
+           Pieces available: {{ tempProduce.unitsInStock}}
+        </div>
+        <div class="col-md-1">
+            {{ tempProduce.unitPrice | currency:'USD'}}
         </div>
         <div class="col-sm">
             Enter pounds: &nbsp;<input type="number" style="width: 45px; padding: 1px; border: 1px;" value="0">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 offset-md-1">
-            Shoulder (bone in / 4 lbs./package)
-        </div>
-        <div class="col-md-1">
-            $9/lb.
-        </div>
-        <div class="col-sm">
-            Enter pounds: &nbsp;<input type="number" style="width: 45px; padding: 1px; border: 1px;" value="0">
-        </div>
+        <span class="border-bottom border"></span>
     </div>
 </div>
+
+<div class="container" style="width:70%">
+<div class="row">
+    <div class="col-6">
+        <h3>Half Lamb</h3>
+    </div>
+    <div class="col-sm">
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+    <span class="border-bottom border-secondary"></span>
+</div>
+</div>
+<!--
 <h3>Total: X pieces, Y USD</h3>
 <br>
 <br>
@@ -66,7 +79,7 @@
 </form>
 <button class="btn btn-block btn-success btn-large">Place order</button>
 
-
+-->
 
 <!--<div  class="projects-one" style="background-image: url(assets/background/main-slider-1-1.jpg)"> 
     <div class="container">
