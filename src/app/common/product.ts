@@ -1,3 +1,5 @@
+import { Produce } from "./produce";
+
 export class Product {
     id!: string;
     sku!: string;
@@ -8,7 +10,8 @@ export class Product {
     imageUrl!: string;
     active!: boolean;;
     unitsInStock!: number;;
-    dateCreated!: Date; ;
-    lastUpdate!: Date; 
+    dateCreated!: Date;;
+    lastUpdate!: Date;
     category!: string;
+
 }

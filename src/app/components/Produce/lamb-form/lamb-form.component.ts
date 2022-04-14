@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartItem } from 'src/app/common/cart-item';
 import { Produce } from 'src/app/common/produce';
+import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { CheckoutformService } from 'src/app/services/checkoutform.service';
@@ -54,6 +56,29 @@ export class LambFormComponent implements OnInit {
         this.produces = data;
       }
     )
+  }
+
+  addToCart(produce: Produce){
+    let product: Product = this.convertProduceToProduct(produce);
+    console.log("Adding item to cart "+product.name);
+    const cartItem = new CartItem(product);
+    this.cartService.addToCart(cartItem);
+  }
+  convertProduceToProduct(produce: Produce){
+    let product =  new Product();
+        product.id = produce.id;
+        product.sku = produce.sku;
+        product.unit = produce.unit;
+        product.name = produce.name;
+        product.description = produce.description;
+        product.unitPrice = produce.unitPrice;
+        product.imageUrl = produce.imageUrl;
+        product.active = produce.active;
+        product.unitsInStock = produce.unitsInStock;
+        product.dateCreated = produce.dateCreated;
+        product.lastUpdate = produce.lastUpdate;
+        product.category = produce.category;
+        return product;
   }
 
 }

@@ -33,7 +33,7 @@
                 {{ tempProduce.unitPrice | currency:'USD'}}
             </div>
             <div class="col-sm">
-                Enter pounds: &nbsp;<input type="number" style="width: 45px; padding: 1px; border: 1px;" value="0">
+                Enter pounds: &nbsp;<input type="number" (click)= "addToCart(tempProduce)"  style="width: 45px; padding: 1px; border: 1px;" value="0">
             </div>
             <span class="border-bottom border"></span>
         </div>
