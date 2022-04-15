@@ -59,6 +59,14 @@ export class LambFormComponent implements OnInit {
     )
   }
 
+  incrementQuantity(cartItem: CartItem){
+    this.cartService.addToCart(cartItem);
+  }
+
+  decrementQuantity(cartItem: CartItem){
+    this.cartService.decrementQuantity(cartItem);
+  }
+
   addToCart(produce: Produce){
     produce.unitsInStock--;
     let product: Product = this.convertProduceToProduct(produce);

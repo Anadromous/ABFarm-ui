@@ -13,5 +13,4 @@ export class Product {
     dateCreated!: Date;;
     lastUpdate!: Date;
     category!: string;
-
 }
