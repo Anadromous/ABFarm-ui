@@ -11,4 +11,5 @@ export class Produce {
     dateCreated!: Date; ;
     lastUpdate!: Date; 
     category!: string;
+    units: number = 0;
 }

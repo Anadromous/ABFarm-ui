@@ -5,8 +5,6 @@ import { CartItem } from 'src/app/common/cart-item';
 import { Produce } from 'src/app/common/produce';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
-import { CheckoutService } from 'src/app/services/checkout.service';
-import { CheckoutformService } from 'src/app/services/checkoutform.service';
 import { ProduceService } from 'src/app/services/produce.service';
 
 @Component({
@@ -16,27 +14,19 @@ import { ProduceService } from 'src/app/services/produce.service';
 })
 export class LambFormComponent implements OnInit {
   produces: Produce[];
-  checkoutFormGroup: FormGroup;
+
   totalPrice: number = 0;
   totalQuantity: number = 0;
+  pounds: number = 0;
 
   constructor(private produceService: ProduceService,
-    private formBuilder: FormBuilder,
-    private checkoutFormService: CheckoutformService,
-    private cartService: CartService,
-    private checkoutService: CheckoutService,
-    private router: Router) { }
+    private cartService: CartService) { }
 
   ngOnInit() {
     this.listProduces();
     this.reviewCartDetails();
 
-    this.checkoutFormGroup = this.formBuilder.group({
-      customer: this.formBuilder.group({
-        firstName: new FormControl('',
-          [Validators.min(0)])
-      }),
-    });
+    
   }
   //end ngonit
   reviewCartDetails() {
@@ -59,8 +49,11 @@ export class LambFormComponent implements OnInit {
   }
 
   addToCart(produce: Produce){
+    produce.units ++;
+    produce.unitsInStock --;
+    //convert to product, cuz that's what it is
     let product: Product = this.convertProduceToProduct(produce);
-    console.log("Adding item to cart "+product.name);
+    console.log("Adding item to cart "+product.name+", pounds="+this.pounds);
     const cartItem = new CartItem(product);
     this.cartService.addToCart(cartItem);
   }
@@ -79,6 +72,10 @@ export class LambFormComponent implements OnInit {
         product.lastUpdate = produce.lastUpdate;
         product.category = produce.category;
         return product;
+  }
+
+  remove(produce: Produce){
+    //this.cartService.remove(cartItem);
   }
 
 }

@@ -1,59 +1,68 @@
 <div class="container" style="width:70%">
-    <p style="padding-top: 150px;">Welcome to the lamb order form page. All of our lamb is %100 grass fed and we 
+    <p style="padding-top: 150px;">Welcome to the lamb order form page. All of our lamb is %100 grass fed and we
         never use hormones or growth suppliments.<br>
         You can purchase lamb by the piece or whole. <br>Payment is
-        accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal account
-        via chapman@appleblossomfarm.com. <br>Whole and half lambs are $9/lb plus processing fees,  
+        accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal
+        account
+        via chapman@appleblossomfarm.com. <br>Whole and half lambs are $9/lb plus processing fees,
         please check below for availability.</p>
-    </div>
-     <!--begin form -->
-    <div class="container" style="width:70%">
-        <h1>Lamb Order Form</h1>
-        <div class="row">
-            <div class="col-6">
-                <h3>Individual Cuts</h3>
-            </div>
-            <div class="col-sm">
-    
-            </div>
-            <div class="col-sm">
-    
-            </div>
-            <span class="border-bottom border-secondary"></span>
+</div>
+<!--begin form -->
+<div class="container" style="width:70%">
+    <h1>Lamb Order Form</h1>
+    <div class="row">
+        <div class="col-6">
+            <h3>Individual Cuts</h3>
         </div>
-    
-        <div class="row gy-3" *ngFor="let tempProduce of produces">
-            <div class="col-md-6 offset-md-1">
-                {{ tempProduce.name}} - {{ tempProduce.description }}
-            </div>
-            <div class="col-md-1">
-               Pieces available: {{ tempProduce.unitsInStock}}
-            </div>
-            <div class="col-md-1">
-                {{ tempProduce.unitPrice | currency:'USD'}}
-            </div>
-            <div class="col-sm">
-                Enter pounds: &nbsp;<input type="number" (click)= "addToCart(tempProduce)"  style="width: 45px; padding: 1px; border: 1px;" value="0">
-            </div>
-            <span class="border-bottom border"></span>
+        <div class="col-sm">
+
         </div>
+        <div class="col-sm">
+
+        </div>
+        <span class="border-bottom border-secondary"></span>
     </div>
-    
-    <div class="container" style="width:70%">
+
+    <div class="row gy-3" *ngFor="let tempProduce of produces">
+        <div class="col-md-4 offset-md-1">
+            {{ tempProduce.name}} - {{ tempProduce.description }}
+        </div>
+        <div class="col-md-2">
+            Pieces available: {{ tempProduce.unitsInStock}}
+        </div>
+        <div class="col-md-1">
+            {{ tempProduce.unitPrice | currency:'USD'}}
+        </div>
+
+        <div class="col-md-3">
+            Enter Pounds: {{ tempProduce.units }}
+            <!--<input type="text" size="2" class="border border-dark" value="{{ tempProduce.units }}">-->
+            <div class="pull-right">
+                <span class="fa fa-stack">
+                    <button class="fa fa-caret-up" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
+                    <button class="fa fa-caret-down" aria-hidden="true" (click)="remove(tempProduce)"></button>
+                </span>
+            </div>
+        </div>
+        <span class="border-bottom border"></span>
+    </div>
+</div>
+
+<div class="container" style="width:70%">
     <div class="row">
         <div class="col-6">
             <h3>Half Lamb</h3>
         </div>
         <div class="col-sm">
-    
+
         </div>
         <div class="col-sm">
-    
+
         </div>
         <span class="border-bottom border-secondary"></span>
     </div>
-    </div>
-    <!--
+</div>
+<!--
     <h3>Total: X pieces, Y USD</h3>
     <br>
     <br>
@@ -80,8 +89,8 @@
     <button class="btn btn-block btn-success btn-large">Place order</button>
     
     -->
-    
-    <!--<div  class="projects-one" style="background-image: url(assets/background/main-slider-1-1.jpg)"> 
+
+<!--<div  class="projects-one" style="background-image: url(assets/background/main-slider-1-1.jpg)"> 
         <div class="container">
             <ul>
                 <li class="nav-item book-now"><a class="nav-link js-scroll" href="#"><i class="fa fa-calendar-check-o"></i>
