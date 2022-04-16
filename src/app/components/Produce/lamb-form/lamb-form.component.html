@@ -35,8 +35,15 @@
         </div>
 
         <div class="col-md-3">
-            Enter Pounds: {{ tempProduce.unitsInStock }}
-            <!--<input type="text" size="2" class="border border-dark" value="{{ tempProduce.units }}">-->
+            <div *ngFor="let count of itemCounts;index as i">
+                <!--<span *ngIf="tempProduce.id.includes('i')">{{ count.itemCount }}</span>-->
+                <ng-template [ngIf]="tempProduce.id.includes('i')" [ngIfElse]="elseBlock">
+                    {{ count.itemCount }}
+                  </ng-template>
+                  <ng-template #elseBlock>
+                    0
+                  </ng-template>
+            </div>
             <div class="pull-right">
                 <span class="fa fa-stack">
                     <button class="fa fa-caret-up" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
