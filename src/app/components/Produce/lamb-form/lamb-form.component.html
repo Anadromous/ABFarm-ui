@@ -28,14 +28,17 @@
             {{ tempProduce.name}} - {{ tempProduce.description }}
         </div>
         <div class="col-md-2">
-            Pieces available: {{ tempProduce.unitsInStock}}
+            Pieces available: {{ tempProduce.unitsInStock }}
         </div>
         <div class="col-md-1">
             {{ tempProduce.unitPrice | currency:'USD'}}
         </div>
 
         <div class="col-md-3">
-            <input type="number" value = "cartItems.quantity" name = "quantity">
+            <div *ngIf="'{{ Number.isNaN(tempProduce.quantity) }}'; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>Units (use arrows): {{ tempProduce.quantity }}</ng-template>
+                <ng-template #elseBlock>Units (use arrows): {{ tempProduce.quantity }}</ng-template>
+            
             <div class="pull-right">
                 <span class="fa fa-stack">
                     <button class="fa fa-caret-up" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>

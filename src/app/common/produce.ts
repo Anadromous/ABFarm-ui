@@ -7,8 +7,9 @@ export class Produce {
     unitPrice!: number;
     imageUrl!: string;
     active!: boolean;;
-    unitsInStock!: number;;
-    dateCreated!: Date; ;
+    unitsInStock!: number;
+    dateCreated!: Date;
     lastUpdate!: Date; 
     category!: string;
+    quantity:number = +0;
 }

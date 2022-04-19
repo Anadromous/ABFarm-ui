@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/common/cart-item';
 import { ItemCount } from 'src/app/common/item-count';
 import { Produce } from 'src/app/common/produce';
+import { ProduceCategory } from 'src/app/common/produce-category';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProduceService } from 'src/app/services/produce.service';
@@ -15,7 +16,7 @@ export class LambFormComponent implements OnInit {
   produces: Produce[];
   totalPrice: number = 0;
   totalQuantity: number = 0;
-  quantity:number = 0;
+  initialQuantity:number = 0;
 
   constructor(private produceService: ProduceService,
     private cartService: CartService) { }
@@ -23,7 +24,7 @@ export class LambFormComponent implements OnInit {
   ngOnInit() {
     this.listProduces();
     this.reviewCartDetails();
-
+    
   }
   //end ngonit
 
@@ -56,10 +57,18 @@ export class LambFormComponent implements OnInit {
 
   addToCart(produce: Produce) {
     produce.unitsInStock--;
-    this.quantity = this.cartService.cartItems.length;//+document.getElementById('quantity');
+    if(Number.isNaN(produce.quantity)){
+      console.log("==>It is not a NaN");
+      produce.quantity = +produce.quantity || 0;
+      produce.quantity++;
+    }else{
+      console.log("==>Wait, it is a NaN");
+      produce.quantity = +produce.quantity || 0;
+      produce.quantity++;
+    }
     let product: Product = this.convertProduceToProduct(produce);
     console.log("Adding item to cart " + product.name);
-    console.log("ItemCount: ==> " + this.quantity);
+    console.log("ItemCount: ==> " + produce.quantity);
     const cartItem = new CartItem(product);
     this.cartService.addToCart(cartItem);
   }
@@ -86,27 +95,5 @@ export class LambFormComponent implements OnInit {
     const cartItem = new CartItem(product);
     this.cartService.remove
   }
-
-/*  addToItemCount(produce: Produce) {
-    let existsInItemCount: boolean = false;
-    let existingItemCount: ItemCount = undefined;
-  
-    //test
-    //let ic = new ItemCount("0", 10);
-    //this.itemCounts.push(ic);
-  
-    if (this.itemCounts.length > 0) {
-      // find the item in the array based on item id
-      for(let i=0;i < this.itemCounts.length;i++){
-        console.log("Value of i= "+i); 
-        console.log("Items count: "+this.itemCounts[i].itemCount);
-        if(this.itemCounts[i].itemId == produce.id){
-          this.itemCounts[i].itemCount++;
-        } 
-      }
-    }else{
-      this.itemCounts.push(new ItemCount(produce.id, 1));
-    }
-  }*/
 }
 
