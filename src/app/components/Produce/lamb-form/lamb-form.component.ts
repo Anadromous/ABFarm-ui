@@ -15,7 +15,7 @@ export class LambFormComponent implements OnInit {
   produces: Produce[];
   totalPrice: number = 0;
   totalQuantity: number = 0;
-  itemCounts: ItemCount[] = [];
+  quantity:number = 0;
 
   constructor(private produceService: ProduceService,
     private cartService: CartService) { }
@@ -54,23 +54,14 @@ export class LambFormComponent implements OnInit {
     this.cartService.decrementQuantity(cartItem);
   }
 
-  addToItemsCount(){
-    for (let i = 0; i < this.produces.length; i++) {
-      //console.log("Here are the produces: "+produce.description);
-      console.log("produces count: " + this.produces.length);
-      this.itemCounts.push(new ItemCount(this.produces[i].id, 0));
-    }
-  }
-
   addToCart(produce: Produce) {
     produce.unitsInStock--;
+    this.quantity = this.cartService.cartItems.length;//+document.getElementById('quantity');
     let product: Product = this.convertProduceToProduct(produce);
     console.log("Adding item to cart " + product.name);
-    console.log("ItemCount: ==> " + this.itemCounts.length);
+    console.log("ItemCount: ==> " + this.quantity);
     const cartItem = new CartItem(product);
     this.cartService.addToCart(cartItem);
-    //maintain local count
-    this.addToItemCount(produce);
   }
 
   convertProduceToProduct(produce: Produce) {
@@ -96,7 +87,7 @@ export class LambFormComponent implements OnInit {
     this.cartService.remove
   }
 
-  addToItemCount(produce: Produce) {
+/*  addToItemCount(produce: Produce) {
     let existsInItemCount: boolean = false;
     let existingItemCount: ItemCount = undefined;
   
@@ -116,6 +107,6 @@ export class LambFormComponent implements OnInit {
     }else{
       this.itemCounts.push(new ItemCount(produce.id, 1));
     }
-  }
+  }*/
 }
 
