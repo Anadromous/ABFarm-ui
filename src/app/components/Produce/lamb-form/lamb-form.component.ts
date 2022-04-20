@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/common/cart-item';
-import { ItemCount } from 'src/app/common/item-count';
 import { Produce } from 'src/app/common/produce';
-import { ProduceCategory } from 'src/app/common/produce-category';
 import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProduceService } from 'src/app/services/produce.service';
@@ -57,7 +55,9 @@ export class LambFormComponent implements OnInit {
 
   addToCart(produce: Produce) {
     produce.unitsInStock--;
-    if(Number.isNaN(produce.quantity)){
+    produce.quantity = +produce.quantity || 0;
+    produce.quantity++;
+    /*if(Number.isNaN(produce.quantity)){
       console.log("==>It is not a NaN");
       produce.quantity = +produce.quantity || 0;
       produce.quantity++;
@@ -65,7 +65,7 @@ export class LambFormComponent implements OnInit {
       console.log("==>Wait, it is a NaN");
       produce.quantity = +produce.quantity || 0;
       produce.quantity++;
-    }
+    }*/
     let product: Product = this.convertProduceToProduct(produce);
     console.log("Adding item to cart " + product.name);
     console.log("ItemCount: ==> " + produce.quantity);
@@ -91,9 +91,11 @@ export class LambFormComponent implements OnInit {
   }
 
   remove(produce: Produce) {
+    produce.unitsInStock++;
+    produce.quantity--;
     let product: Product = this.convertProduceToProduct(produce);
     const cartItem = new CartItem(product);
-    this.cartService.remove
+    this.cartService.decrementQuantity(cartItem);
   }
 }
 
