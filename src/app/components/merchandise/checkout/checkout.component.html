@@ -73,8 +73,7 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="country" (change)="getStates('shippingAddress')">
-                                    <option *ngFor="let country of countries" [ngValue]="country"
-                                        [selected]="defaultCountry">
+                                    <option *ngFor="let country of countries" [ngValue]="country">
                                         {{ country.name }}
                                     </option>
                                 </select>
@@ -171,8 +170,7 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="country" (change)="getStates('billingAddress')">
-                                    <option *ngFor="let country of countries" [ngValue]="country"
-                                        [selected]="defaultCountry">
+                                    <option *ngFor="let country of countries" [ngValue]="country">
                                         {{ country.name }}
                                     </option>
                                 </select>
@@ -305,7 +303,7 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="expirationMonth">
-                                    <option *ngFor="let month of creditcardMonths">
+                                    <option *ngFor="let month of creditCardMonths">
                                         {{ month }}
                                     </option>
                                 </select>
@@ -318,7 +316,7 @@
                         <div class="col-md-9">
                             <div class="input-space">
                                 <select formControlName="expirationYear" (change)="handleMonthsAndYears()">
-                                    <option *ngFor="let year of creditcardYears">
+                                    <option *ngFor="let year of creditCardYears">
                                         {{ year }}
                                     </option>
                                 </select>
