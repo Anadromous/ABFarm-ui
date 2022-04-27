@@ -1,13 +1,25 @@
-<div class="container mw-100">
+<!--<div class="container mw-100">
     <app-header></app-header>
 </div>
 <body>
 <div class="container mw-100">
-    <!--<div class="row app-container">-->
     <router-outlet></router-outlet>
-    <!--</div>-->
 </div>
 </body>
 <div class="container mw-100">
     <app-footer></app-footer>
-</div>
+</div>-->
+
+<body>
+    <div class="wrapper">
+      <div class="header">
+        <app-header></app-header>
+      </div>
+      <router-outlet></router-outlet>
+  
+      <div class="push"></div>
+    </div>
+    <footer class="footer">
+        <app-footer></app-footer>
+    </footer>
+  </body>
