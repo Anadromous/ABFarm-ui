@@ -1,25 +1,12 @@
-<!--<div class="container mw-100">
-    <app-header></app-header>
-</div>
 <body>
-<div class="container mw-100">
-    <router-outlet></router-outlet>
-</div>
-</body>
-<div class="container mw-100">
-    <app-footer></app-footer>
-</div>-->
-
-<body>
-    <div class="wrapper">
-      <div class="header">
-        <app-header></app-header>
-      </div>
-      <router-outlet></router-outlet>
-  
-      <div class="push"></div>
+  <div class="wrapper">
+    <div class="header">
+      <app-header></app-header>
     </div>
-    <footer class="footer">
-        <app-footer></app-footer>
-    </footer>
-  </body>
+    <router-outlet></router-outlet>
+    <div class="push"></div>
+  </div>
+  <footer class="footer">
+    <app-footer></app-footer>
+  </footer>
+</body>

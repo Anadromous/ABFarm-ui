@@ -1,12 +1,23 @@
 nav{
-    background: #304a5c;
-    background: -webkit-linear-gradient(59deg, #557b8f, #30556d);
-    background: linear-gradient(59deg, #557b8f, #30556d);
+    background: #3f7857;
+    background: -webkit-linear-gradient(59deg, #67A79F, #42716B);
+    background: linear-gradient(59deg, #67A79F, #42716B);
     color: white;
   }
 
+  .header-font a {
+    color: #fff;
+    font-size: 22px;
+    transition-duration: 0.2s;
+  }
+  
+  ul a:hover {
+    color: #FA944B;
+    text-decoration: none;
+  }
+
 .hidden-spacer {
-    height: 56px;
+  height: 56px;
 	width: 25px;
 }
 
