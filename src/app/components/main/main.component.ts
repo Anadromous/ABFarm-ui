@@ -32,26 +32,7 @@ SwiperCore.use([
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
-  styles: [
-    `
-      .bg-yellow {
-        background-color: yellow;
-      }
-      .transition {
-        transition: background 0.25s ease, color 0.25s ease;
-      }
-      .active-slide {
-        background-color: green;
-        color: #fff;
-      }
-      .bg-blue {
-        background-color: blue;
-        color: #fff;
-      }
-    `
-  ],
-})
+  styleUrls: ['./main.component.scss']})
 export class MainComponent {
   @ViewChild('swiperRef', { static: false }) swiperRef?: SwiperComponent;
 
