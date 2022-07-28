@@ -1,4 +1,4 @@
-.bg-image{
+/*.bg-image{
   position: relative;
   height: 100%;  
   background-image: url(/assets/logos/CircleLogo.png), url(/assets/background/appleblossomclose.jpg);
@@ -7,6 +7,17 @@
   background-repeat: no-repeat, no-repeat;
   background-size: 25%,cover;
   z-index:1,2;
+}*/
+
+.bg-image{
+  position: relative;
+  height: 100%;  
+  background-image: url(/assets/background/BarnFront.jpg);
+  margin-top: 0px;
+  background-position: top, center;
+  background-repeat: no-repeat;
+  background-size: over;
+  z-index:1;
 }
 
 .box-image{
