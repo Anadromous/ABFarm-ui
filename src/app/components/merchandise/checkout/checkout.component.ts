@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Country } from 'src/app/common/country';
 import { Order } from 'src/app/common/order';
@@ -19,7 +19,7 @@ import { CheckoutValidators } from 'src/app/validators/checkout-validators';
 
 export class CheckoutComponent implements OnInit {
 
-  checkoutFormGroup: FormGroup;
+  checkoutFormGroup: UntypedFormGroup;
   totalPrice: number = 0;
   totalQuantity: number = 0;  
   creditCardYears: number[] = [];
@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit {
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
     
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private checkoutformService: CheckoutformService,
               private cartService: CartService,
               private checkoutService: CheckoutService,
@@ -42,45 +42,45 @@ export class CheckoutComponent implements OnInit {
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: new FormControl('', 
+        firstName: new UntypedFormControl('', 
                               [Validators.required, 
                                Validators.minLength(2), 
                                CheckoutValidators.notOnlyWhitespace]),
 
-        lastName:  new FormControl('', 
+        lastName:  new UntypedFormControl('', 
                               [Validators.required, 
                                Validators.minLength(2), 
                                CheckoutValidators.notOnlyWhitespace]),
                                
-        email: new FormControl('',
+        email: new UntypedFormControl('',
                               [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({
-        street: new FormControl('', [Validators.required, Validators.minLength(2), 
+        street: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                      CheckoutValidators.notOnlyWhitespace]),
-        city: new FormControl('', [Validators.required, Validators.minLength(2), 
+        city: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                    CheckoutValidators.notOnlyWhitespace]),
-        state: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
+        state: new UntypedFormControl('', [Validators.required]),
+        country: new UntypedFormControl('', [Validators.required]),
+        zipCode: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                     CheckoutValidators.notOnlyWhitespace])
       }),
       billingAddress: this.formBuilder.group({
-        street: new FormControl('', [Validators.required, Validators.minLength(2), 
+        street: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                      CheckoutValidators.notOnlyWhitespace]),
-        city: new FormControl('', [Validators.required, Validators.minLength(2), 
+        city: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                    CheckoutValidators.notOnlyWhitespace]),
-        state: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
+        state: new UntypedFormControl('', [Validators.required]),
+        country: new UntypedFormControl('', [Validators.required]),
+        zipCode: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                       CheckoutValidators.notOnlyWhitespace])
       }),
       creditCard: this.formBuilder.group({
-        cardType: new FormControl('', [Validators.required]),
-        nameOnCard:  new FormControl('', [Validators.required, Validators.minLength(2), 
+        cardType: new UntypedFormControl('', [Validators.required]),
+        nameOnCard:  new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
                                           CheckoutValidators.notOnlyWhitespace]),
-        cardNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]{16}')]),
-        securityCode: new FormControl('', [Validators.required, Validators.pattern('[0-9]{3}')]),
+        cardNumber: new UntypedFormControl('', [Validators.required, Validators.pattern('[0-9]{16}')]),
+        securityCode: new UntypedFormControl('', [Validators.required, Validators.pattern('[0-9]{3}')]),
         expirationMonth: [''],
         expirationYear: ['']
       })
