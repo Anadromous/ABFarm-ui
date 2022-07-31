@@ -33,8 +33,7 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "./node_modules/swiper/swiper-bundle.css"
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [              
               "./node_modules/jquery/dist/jquery.min.js",
@@ -114,5 +113,8 @@
       }
     }
   },
-  "defaultProject": "ABFarm-ui"
+  "defaultProject": "ABFarm-ui",
+  "cli": {
+    "analytics": "afd7b22a-9cd4-4fd4-b1fd-83aff481d4e7"
+  }
 }

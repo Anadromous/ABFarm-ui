@@ -51,3 +51,15 @@
   width: 100%;
   size: cover;
 }
+
+#slider .carousel-item {
+  height: 500px;
+}
+
+.carousel-caption {
+  font-size: 18px;
+}
+
+.carousel-item>img {
+  width: 100%
+}

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { SwiperModule } from 'swiper/angular';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
@@ -24,6 +23,7 @@ import { LoginStatusComponent } from './components/security/login-status/login-s
 import { ProduceService } from './services/produce.service';
 import { LambFormComponent } from './components/Produce/lamb-form/lamb-form.component';
 import { ProduceFormComponent } from './components/Produce/produce-form/produce-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,8 @@ import { ProduceFormComponent } from './components/Produce/produce-form/produce-
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    SwiperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [ProductService,ProduceService],
   bootstrap: [AppComponent]

@@ -1,95 +1,50 @@
-<nav class="navbar navbar-expand-md  navbar-dark red">
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNav"  aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="myNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="myNav" [ngbCollapse]="isCollapsed">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a routerLink="/app-main" routerLinkActive="active" class="nav-link">Home</a>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <a routerLink="/our-farm" routerLinkActive="active" class="nav-link">Our Farm</a>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <a routerLink="/animals" routerLinkActive="active" class="nav-link">Animals</a>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <a routerLink="/glamping" routerLinkActive="active" class="nav-link">Farm
-                    Stay</a>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown">Merchandise</a>
-                    <div class="dropdown-menu">
-                        <app-category-menu></app-category-menu>
+<div class="container">
+    <nav class="navbar navbar-expand-md  navbar-dark red">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNav" aria-expanded="false"
+            aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+            aria-controls="myNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNav" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a routerLink="/app-main" routerLinkActive="active" class="nav-link">Home</a>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <a routerLink="/our-farm" routerLinkActive="active" class="nav-link">Our Farm</a>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <a routerLink="/animals" routerLinkActive="active" class="nav-link">Animals</a>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <a routerLink="/glamping" routerLinkActive="active" class="nav-link">Farm
+                        Stay</a>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown">Merchandise</a>
+                        <div class="dropdown-menu">
+                            <app-category-menu></app-category-menu>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <div class="sticky-top hidden-spacer"> </div>
-            <li class="nav-item">
-                <a routerLink="/order-lamb" routerLinkActive="active" class="nav-link">Order
-                    Lamb</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!--<nav class="navbar navbar-expand-md">
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNav"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="myNav">
-            <a class="navbar-brand" href="#">
-                <img src="assets/logos/logo-dark.png" class="white-logo" alt="logo" width="50" height="50">
-            </a>
-            <div class="collapse navbar-collapse justify-content-center header-font" id="myNav">
-                <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a routerLink="/app-main" routerLinkActive="active" class="nav-link">Home</a>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <a routerLink="/our-farm" routerLinkActive="active" class="nav-link">Our Farm</a>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <a routerLink="/animals" routerLinkActive="active"
-                                class="nav-link">Animals</a>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <a routerLink="/projects" routerLinkActive="active"
-                                class="nav-link">Projects</a>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <a routerLink="/glamping" routerLinkActive="active" class="nav-link">Farm
-                                Stay</a>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link"
-                                    data-bs-toggle="dropdown">Merchandise</a>
-                                <div class="dropdown-menu">
-                                    <app-category-menu></app-category-menu>
-                                </div>
-                            </div>
-                        </li>
-                        <div class="sticky-top hidden-spacer"> </div>
-                        <li class="nav-item">
-                            <a routerLink="/order-lamb" routerLinkActive="active" class="nav-link">Order
-                                Lamb</a>
-                        </li>
+                </li>
+                <div class="sticky-top hidden-spacer"> </div>
+                <li class="nav-item">
+                    <a routerLink="/order-lamb" routerLinkActive="active" class="nav-link">Order
+                        Lamb</a>
+                </li>
             </ul>
         </div>
-            <div class="float-right">
-                <app-cart-status></app-cart-status>
-            </div>
+        <div class="float-right">
+            <app-cart-status></app-cart-status>
         </div>
-    </nav>-->
+    </nav>
+</div>
