@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="main-content cart-details">
+        <div class="section-content section-content-p30">
+            <div class="container-fluid">
+                <div *ngIf="cartItems.length > 0">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="50%">Product Detail</th>
+                            <th width="30%"></th>
+                        </tr>
+                        <tr *ngFor="let tempCartItem of cartItems">
+                            <td>
+                                <p>{{ tempCartItem.name }}</p>
+                                <p>{{ tempCartItem.unitPrice | currency:'USD' }}</p>
+                            </td>
+                            <div class="items">
+                                <label>Quantity</label>
+                                <div class="row no-gutters">
+                                    <div class="col ml-4 mr-3">
+                                        {{ tempCartItem.quantity }}
+                                    </div>
+                                    
+                                    <div class="col-8"></div>
+                                </div>
+                            </div>
+                            <p class="mt-2">SubTotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:
+                                'USD'}}
+                            </p>
+                        </tr>
+                       
+                        <tr>
+                            <td colspan="2"></td>
+                            <td style="font-weight: bold;">
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+                <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    Your Cart is Empty.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

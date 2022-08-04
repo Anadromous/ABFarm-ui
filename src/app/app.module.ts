@@ -24,6 +24,7 @@ import { ProduceService } from './services/produce.service';
 import { LambFormComponent } from './components/Produce/lamb-form/lamb-form.component';
 import { ProduceFormComponent } from './components/Produce/produce-form/produce-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrderConfirmationComponent } from './components/merchandise/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CheckoutComponent,
     LoginStatusComponent,
     LambFormComponent,
-    ProduceFormComponent
+    ProduceFormComponent,
+    OrderConfirmationComponent
     
   ],
   imports: [

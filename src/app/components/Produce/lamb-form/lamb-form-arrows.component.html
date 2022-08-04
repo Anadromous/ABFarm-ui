@@ -1,68 +1,51 @@
-<div class="container" style="width:70%; text-align: justify;">
+<div class="container" style="width:70%">
     <p style="padding-top: 150px;">Welcome to the lamb order form page. All of our lamb is %100 grass fed and we
-        never use hormones or growth suppliments.
-        <br>You can purchase lamb by the piece or whole.
-        <br>Payment is accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal
-        account via chapman@appleblossomfarm.com.
-        <br>Whole and half lambs are $9/lb plus processing fees,
+        never use hormones or growth suppliments.<br>
+        You can purchase lamb by the piece or whole. <br>Payment is
+        accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal
+        account
+        via chapman@appleblossomfarm.com. <br>Whole and half lambs are $9/lb plus processing fees,
         please check below for availability.</p>
 </div>
 <!--begin form -->
-<div class="container" style="width:80%">
+<div class="container" style="width:70%">
     <h1>Lamb Order Form</h1>
     <div class="row">
-        <div class="col-12">
+        <div class="col-6">
             <h3>Individual Cuts</h3>
         </div>
-    </div>
-    <span class="border-bottom border-secondary"></span>
-    <div class="row">
-        <div class="col-8"></div>
-        <div class="col-4">
-            <div>
-                <app-cart-status></app-cart-status>
-            </div>
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+
         </div>
         <span class="border-bottom border-secondary"></span>
     </div>
-    
 
     <div class="row gy-3" *ngFor="let tempProduce of produces">
-        <div class="col-md-3 offset-md-1">
+        <div class="col-md-4 offset-md-1">
             {{ tempProduce.name}} - {{ tempProduce.description }}
+        </div>
+        <div class="col-md-2">
+            Pieces available: {{ tempProduce.unitsInStock }}
         </div>
         <div class="col-md-1">
             {{ tempProduce.unitPrice | currency:'USD'}}
         </div>
-        <div class="col-md-2">
-            Amount in stock: {{ tempProduce.unitsInStock }}
-        </div>    
 
-        <div class="col-md-2" style="text-align: right;">
-            <label>Add to Cart&nbsp;</label>
-            <button class="fa-solid fa-square-plus" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
-        <br>            
-            <label>Remove from Cart&nbsp;</label>
-            <button style="text-align: right;" class="fa-solid fa-square-minus" aria-hidden="true" (click)="remove(tempProduce)"></button>
+        <div class="col-md-3">
+            <div *ngIf="'{{ Number.isNaN(tempProduce.quantity) }}'; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>Units (use arrows): {{ tempProduce.quantity }}</ng-template>
+                <ng-template #elseBlock>Units (use arrows): {{ tempProduce.quantity }}</ng-template>
+            
+            <div class="pull-right">
+                <span class="fa fa-stack">
+                    <button class="fa fa-caret-up" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
+                    <button class="fa fa-caret-down" aria-hidden="true" (click)="remove(tempProduce)"></button>
+                </span>
+            </div>
         </div>
-        <!-- <div class="col-md-1" *ngIf="'{{tempProduce.quantity}}>0'">
-            <p>Quantity: {{ tempProduce.quantity}}</p>            
-        </div>
-        <div class="col-md-1" *ngIf="'{{tempProduce.quantity}}>1'">
-            <p>Quantity: 0</p>            
-        </div> -->
-
-        <div class="col-md-3" *ngIf="'{{tempProduce.quantity}}>0 && {{tempProduce.quantity}} != null'; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>
-                <div class="col-md-1">
-                    <p>Quantity: {{ tempProduce.quantity }}</p>
-                </div>
-            </ng-template>
-            <ng-template #elseBlock>
-                <div class="col-md-1">
-                    <p>0</p>
-                </div>
-            </ng-template>
         <span class="border-bottom border"></span>
     </div>
 </div>

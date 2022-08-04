@@ -11,6 +11,7 @@ import { ProjectsPageComponent } from './components/projects-page/projects-page.
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
+import { OrderConfirmationComponent } from './components/merchandise/order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
   {path: 'app-main', component: MainComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'order-lamb', component: LambFormComponent},
   {path: 'glamping', component: GlampingComponent},
+  {path: 'order-confirmation', component: OrderConfirmationComponent},
   {path: '', redirectTo: '/app-main', pathMatch: 'full'},
   {path: '**', redirectTo: '/app-main', pathMatch: 'full'}
   //{path: '**', component: PageNotFoundComponent}
@@ -44,5 +46,6 @@ export const routingComponents = [
   LambFormComponent,
   GlampingComponent,
   ProductListComponent,
-  CategoryMenuComponent
+  CategoryMenuComponent,
+  OrderConfirmationComponent
 ]

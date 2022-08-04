@@ -43,6 +43,7 @@ export class LambFormComponent implements OnInit {
         this.produces = data;
       }
     )
+ 
   }
 
   incrementQuantity(cartItem: CartItem) {
@@ -73,6 +74,7 @@ export class LambFormComponent implements OnInit {
     this.cartService.addToCart(cartItem);
   }
 
+  //Do this to re-use the product shopping cart
   convertProduceToProduct(produce: Produce) {
     let product = new Product();
     product.id = produce.id;
