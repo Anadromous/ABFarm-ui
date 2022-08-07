@@ -8,6 +8,7 @@ import { Purchase } from 'src/app/common/purchase';
 import { State } from 'src/app/common/state';
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
+import { EmailService } from 'src/app/services/email.service';
 import { CheckoutformService } from 'src/app/services/checkoutform.service';
 import { CheckoutValidators } from 'src/app/validators/checkout-validators';
 
@@ -24,9 +25,7 @@ export class CheckoutComponent implements OnInit {
   totalQuantity: number = 0;  
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
-
   countries: Country[] = [];
-
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
     
@@ -34,6 +33,7 @@ export class CheckoutComponent implements OnInit {
               private checkoutformService: CheckoutformService,
               private cartService: CartService,
               private checkoutService: CheckoutService,
+              private emailService: EmailService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -128,7 +128,6 @@ export class CheckoutComponent implements OnInit {
     this.cartService.totalPrice.subscribe(
       totalPrice => this.totalPrice = totalPrice
     );
-
   }
 
   get firstName() { return this.checkoutFormGroup.get('customer.firstName'); }
@@ -152,8 +151,6 @@ export class CheckoutComponent implements OnInit {
   get creditCardNumber() { return this.checkoutFormGroup.get('creditCard.cardNumber'); }
   get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCard.securityCode'); }*/
 
-
-
   copyShippingAddressToBillingAddress(event) {
 
     if (event.target.checked) {
@@ -162,15 +159,13 @@ export class CheckoutComponent implements OnInit {
 
       // bug fix for states
       this.billingAddressStates = this.shippingAddressStates;
-
     }
     else {
       this.checkoutFormGroup.controls.billingAddress.reset();
 
       // bug fix for states
       this.billingAddressStates = [];
-    }
-    
+    }    
   }
 
   onSubmit() {
@@ -231,7 +226,7 @@ export class CheckoutComponent implements OnInit {
     this.checkoutService.placeOrder(purchase).subscribe({
         next: response => {
           alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
-          //this.resetCart();
+          this.resetCart();
         },
         error: err => {
           alert(`There was an error: ${err.message}`);
@@ -241,18 +236,17 @@ export class CheckoutComponent implements OnInit {
       
     );
 
-       //call REST API via the CheckoutService
-       this.checkoutService.sendConfirmationEmail(purchase).subscribe({
-           next: response => {
-             alert("You will receive an email...");
-             // reset cart
-           this.resetCart();
-         },
-         error: err => {
-           alert(`There was an error: ${err.message}`);
-         }
-       }
-       );
+       //send confirmation email
+      //  this.emailService.sendEmail().subscribe({
+      //      next: response => {
+      //       alert(`Thank you  you will receive an email shortly.`);
+      //        this.resetCart();
+      //    },
+      //    error: err => {
+      //      alert(`There was an error: ${err.message}`);
+      //    }
+      //  }
+      //  );
 
   }
 

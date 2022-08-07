@@ -82,9 +82,9 @@ export class LambFormComponent implements OnInit {
     product.unit = produce.unit;
     product.name = produce.name;
     product.description = produce.description;
-    product.unitPrice = produce.unitPrice;
+    product.unitPounds = produce.unitPounds;
     product.imageUrl = produce.imageUrl;
-    product.active = produce.active;
+    product.unitPrice = produce.unitPrice;
     product.unitsInStock = produce.unitsInStock;
     product.dateCreated = produce.dateCreated;
     product.lastUpdate = produce.lastUpdate;

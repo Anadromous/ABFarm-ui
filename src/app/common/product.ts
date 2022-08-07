@@ -6,9 +6,9 @@ export class Product {
     unit!: string;
     name!: string;
     description!: string;
-    unitPrice!: number;
+    unitPounds!: number;
     imageUrl!: string;
-    active!: boolean;;
+    unitPrice!: number;;
     unitsInStock!: number;;
     dateCreated!: Date;;
     lastUpdate!: Date;

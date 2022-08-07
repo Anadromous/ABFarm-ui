@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ContentComponent } from './components/content/content.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { GlampingComponent } from './components/glamping/glamping.component';
 import { ProductCategoryMenuComponent } from './components/merchandise/product-category-menu/product-category-menu.component';
@@ -33,7 +33,7 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
     MainComponent,
     FooterComponent,
     routingComponents,
-    ContentComponent,
+    ContactComponent,
     AnimalsComponent,
     GlampingComponent,
     ProductCategoryMenuComponent,
@@ -47,8 +47,7 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
     LoginStatusComponent,
     LambFormComponent,
     ProduceFormComponent,
-    OrderConfirmationComponent
-    
+    OrderConfirmationComponent    
   ],
   imports: [
     BrowserModule,

@@ -17,49 +17,43 @@
     </div>
     <span class="border-bottom border-secondary"></span>
     <div class="row">
-        <div class="col-8"></div>
-        <div class="col-4">
+        <div class="col-4">Click on cart to checkout</div>
+        <div class="col-8">
             <div>
                 <app-cart-status></app-cart-status>
             </div>
         </div>
-        <span class="border-bottom border-secondary"></span>
+        <span class="border-bottom border-secondary">&nbsp;</span>
     </div>
-    
-
-    <div class="row gy-3" *ngFor="let tempProduce of produces">
-        <div class="col-md-3 offset-md-1">
+     <div class="row gy-3 border" *ngFor="let tempProduce of produces">
+        <div class="col-md-3 border">
             {{ tempProduce.name}} - {{ tempProduce.description }}
         </div>
-        <div class="col-md-1">
-            {{ tempProduce.unitPrice | currency:'USD'}}
+        <div class="col-md-1 border">
+            Price/lb.: {{ tempProduce.unitPrice | currency:'USD'}}
         </div>
-        <div class="col-md-2">
-            Amount in stock: {{ tempProduce.unitsInStock }}
+        <div class="col-md-1 border">
+            Lb./Pckge: {{ tempProduce.unitPounds }}
+        </div>
+        <div class="col-md-2 border">
+            Amt. in Stock: {{ tempProduce.unitsInStock }}
         </div>    
 
-        <div class="col-md-2" style="text-align: right;">
+        <div class="col-md-2 border" style="text-align: right;">
             <label>Add to Cart&nbsp;</label>
             <button class="fa-solid fa-square-plus" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
         <br>            
             <label>Remove from Cart&nbsp;</label>
             <button style="text-align: right;" class="fa-solid fa-square-minus" aria-hidden="true" (click)="remove(tempProduce)"></button>
         </div>
-        <!-- <div class="col-md-1" *ngIf="'{{tempProduce.quantity}}>0'">
-            <p>Quantity: {{ tempProduce.quantity}}</p>            
-        </div>
-        <div class="col-md-1" *ngIf="'{{tempProduce.quantity}}>1'">
-            <p>Quantity: 0</p>            
-        </div> -->
-
-        <div class="col-md-3" *ngIf="'{{tempProduce.quantity}}>0 && {{tempProduce.quantity}} != null'; then thenBlock else elseBlock"></div>
+        <div class="col-md-3 border" *ngIf="'{{tempProduce.quantity}}>0 && {{tempProduce.quantity}} != null'; then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>
                 <div class="col-md-1">
                     <p>Quantity: {{ tempProduce.quantity }}</p>
                 </div>
             </ng-template>
             <ng-template #elseBlock>
-                <div class="col-md-1">
+                <div class="col-md-1 border">
                     <p>0</p>
                 </div>
             </ng-template>

@@ -9,6 +9,7 @@ import { OurFarmPageComponent } from './components/our-farm-page/our-farm-page.c
 import { CategoryMenuComponent } from './components/category-menu/category-menu.component';
 import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
+import { ProduceFormComponent } from './components/Produce/produce-form/produce-form.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 import { OrderConfirmationComponent } from './components/merchandise/order-confirmation/order-confirmation.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'produce', component: ProduceFormComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
@@ -44,6 +46,7 @@ export const routingComponents = [
   AnimalsComponent,
   ProjectsPageComponent,
   LambFormComponent,
+  ProduceFormComponent,
   GlampingComponent,
   ProductListComponent,
   CategoryMenuComponent,
