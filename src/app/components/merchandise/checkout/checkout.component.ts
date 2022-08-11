@@ -22,48 +22,48 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup: UntypedFormGroup;
   totalPrice: number = 0;
-  totalQuantity: number = 0;  
+  totalQuantity: number = 0;
   creditCardYears: number[] = [];
   creditCardMonths: number[] = [];
   countries: Country[] = [];
   shippingAddressStates: State[] = [];
   billingAddressStates: State[] = [];
-    
+
   constructor(private formBuilder: UntypedFormBuilder,
-              private checkoutformService: CheckoutformService,
-              private cartService: CartService,
-              private checkoutService: CheckoutService,
-              private emailService: EmailService,
-              private router: Router) { }
+    private checkoutformService: CheckoutformService,
+    private cartService: CartService,
+    private checkoutService: CheckoutService,
+    private emailService: EmailService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    
+
     this.reviewCartDetails();
 
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        firstName: new UntypedFormControl('', 
-                              [Validators.required, 
-                               Validators.minLength(2), 
-                               CheckoutValidators.notOnlyWhitespace]),
+        firstName: new UntypedFormControl('',
+          [Validators.required,
+          Validators.minLength(2),
+          CheckoutValidators.notOnlyWhitespace]),
 
-        lastName:  new UntypedFormControl('', 
-                              [Validators.required, 
-                               Validators.minLength(2), 
-                               CheckoutValidators.notOnlyWhitespace]),
-                               
+        lastName: new UntypedFormControl('',
+          [Validators.required,
+          Validators.minLength(2),
+          CheckoutValidators.notOnlyWhitespace]),
+
         email: new UntypedFormControl('',
-                              [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+          [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({
-        street: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
-                                     CheckoutValidators.notOnlyWhitespace]),
-        city: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
-                                   CheckoutValidators.notOnlyWhitespace]),
+        street: new UntypedFormControl('', [Validators.required, Validators.minLength(2),
+        CheckoutValidators.notOnlyWhitespace]),
+        city: new UntypedFormControl('', [Validators.required, Validators.minLength(2),
+        CheckoutValidators.notOnlyWhitespace]),
         state: new UntypedFormControl('', [Validators.required]),
         country: new UntypedFormControl('', [Validators.required]),
-        zipCode: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
-                                    CheckoutValidators.notOnlyWhitespace])
+        zipCode: new UntypedFormControl('', [Validators.required, Validators.minLength(2),
+        CheckoutValidators.notOnlyWhitespace])
       })/*,
       billingAddress: this.formBuilder.group({
         street: new UntypedFormControl('', [Validators.required, Validators.minLength(2), 
@@ -115,7 +115,7 @@ export class CheckoutComponent implements OnInit {
         this.countries = data;
       }
     );
-  }
+  }//end ngInit
 
   reviewCartDetails() {
 
@@ -155,7 +155,7 @@ export class CheckoutComponent implements OnInit {
 
     if (event.target.checked) {
       this.checkoutFormGroup.controls.billingAddress
-            .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
+        .setValue(this.checkoutFormGroup.controls.shippingAddress.value);
 
       // bug fix for states
       this.billingAddressStates = this.shippingAddressStates;
@@ -165,7 +165,7 @@ export class CheckoutComponent implements OnInit {
 
       // bug fix for states
       this.billingAddressStates = [];
-    }    
+    }
   }
 
   onSubmit() {
@@ -198,10 +198,10 @@ export class CheckoutComponent implements OnInit {
 
     // set up purchase
     let purchase = new Purchase();
-    
+
     // populate purchase - customer
     purchase.customer = this.checkoutFormGroup.controls['customer'].value;
-    
+
     // populate purchase - shipping address
     purchase.shippingAddress = this.checkoutFormGroup.controls['shippingAddress'].value;
     const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
@@ -217,37 +217,42 @@ export class CheckoutComponent implements OnInit {
     purchase.billingAddress.state = billingState.name;
     purchase.billingAddress.country = billingCountry.name;
     */
-  
+
     // populate purchase - order and orderItems
     purchase.order = order;
     purchase.orderItems = orderItems;
 
     // call REST API via the CheckoutService
     this.checkoutService.placeOrder(purchase).subscribe({
-        next: response => {
-          alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
-          this.resetCart();
-        },
-        error: err => {
-          alert(`There was an error: ${err.message}`);
-        }
-        
+      next: response => {
+        alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+        this.resetCart();
+        this.sendConfirmationEmail(purchase);
+      },
+      error: err => {
+        alert(`There was an error: ${err.message}`);
       }
-      
+
+    }
+
     );
 
-       //send confirmation email
-      //  this.emailService.sendEmail().subscribe({
-      //      next: response => {
-      //       alert(`Thank you  you will receive an email shortly.`);
-      //        this.resetCart();
-      //    },
-      //    error: err => {
-      //      alert(`There was an error: ${err.message}`);
-      //    }
-      //  }
-      //  );
 
+
+  }
+  //send confirmation email
+  sendConfirmationEmail(purchase: Purchase) {
+    console.log("Order number: "+purchase.order.totalPrice);
+    this.emailService.sendConfirmationEmail(purchase).subscribe({
+      next: response => {
+        alert(`Thank you  you will receive an email shortly.`);
+        this.resetCart();
+      },
+      error: err => {
+        alert(`There was an error: ${err.message}`);
+      }
+    }
+    );
   }
 
   resetCart() {
@@ -255,7 +260,7 @@ export class CheckoutComponent implements OnInit {
     // reset cart data
     this.cartService.cartItems = [];
     this.cartService.totalPrice.next(0);
-    this.cartService.totalQuantity.next(0);    
+    this.cartService.totalQuantity.next(0);
     // reset the form
     this.checkoutFormGroup.reset();
   }
@@ -301,7 +306,7 @@ export class CheckoutComponent implements OnInit {
       data => {
 
         if (formGroupName === 'shippingAddress') {
-          this.shippingAddressStates = data; 
+          this.shippingAddressStates = data;
         }
         else {
           this.billingAddressStates = data;

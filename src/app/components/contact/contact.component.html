@@ -1,25 +1,71 @@
-<div class="container">
+<div class="container" style="background-color:rgb(223, 223, 223);">
     <h1 class="text-md-left">Contact Page</h1>
     <div class="row">
         <div class="col-lg-8 jumbotron">
-            <form>
+            <form [formGroup]="contactForm" (ngSubmit)="sendNotification()" novalidate>
                 <div class="form-group">
-                    <label for="fname">Full Name </label>
-                    <input type="text" class="form-control" id="fname" name="fname"> </div>
-                <div class="form-group">
-                    <label for="femail">Email Address </label>
-                    <input type="email" class="form-control" id="femail" name="femail"> </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea rows="8" class="form-control" id="message" name="message"></textarea>
+                    <div class="form-group">
+                        <label for="name">Full Name </label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+                        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger mt-1">
+                            <div *ngIf="name.errors.required || name.errors.notOnlyWhitespace">
+                                Name is required
+                            </div>
+                            <div *ngIf="name.errors.minlength">
+                                Name must be at least 2 characters long
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address </label>
+                        <input type="text" class="form-control" id="email" name="email" formControlName="email">
+                        <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
+                            <div *ngIf="email.errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="email.errors.pattern">
+                                Email must be a valid email address format
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" formControlName="subject">
+
+                        <!-- <div *ngIf="subject.invalid && (subject.dirty || subject.touched)"
+                            class="alert alert-danger mt-1">
+                            <div *ngIf="subject.errors.required || subject.errors.notOnlyWhitespace">
+                                Subject is required
+                            </div>
+                            <div *ngIf="subject.errors.minlength">
+                                Subject must be at least 2 characters long
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea rows="8" class="form-control" id="message" name="message" formControlName="message"></textarea>
+                        <!-- <div *ngIf="message.invalid && (message.dirty || message.touched)"
+                            class="alert alert-danger mt-1">
+                            <div *ngIf="message.errors.required || message.errors.notOnlyWhitespace">
+                                Subject is required
+                            </div>
+                            <div *ngIf="message.errors.minlength">
+                                Message must be at least 2 characters long
+                            </div>
+                        </div> -->
+                    </div>
                 </div>
-                <input type="submit" value="Send Message" class="btn btn-primary"> </form>
+                <input type="submit" value="Send Message" class="btn btn-primary">
+            </form>
         </div>
         <div class="col-lg-4"> Contact Info
             <ul class="list-group">
-                <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i> 1-888-888-888</li>
-                <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i> 100 Street Ave. Tokyo Japan 4789</li>
-                <li class="list-group-item"><i class="fa fa-envelope-o" aria-hidden="true"></i> lllllemail@noemail.com</li>
+                <li class="list-group-item"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp;503-449-0882</li>
+                <li class="list-group-item"><i class="fa fa-envelope-open" aria-hidden="true"></i>&nbsp;41870 N.W.
+                    Lippert Lane<br>Forest Grove, Or. 97116</li>
+                <li class="list-group-item"><i class="fa fa-envelope-o"
+                        aria-hidden="true"></i>&nbsp;appleblossomfarmfg@gmail.com</li>
             </ul>
         </div>
     </div>

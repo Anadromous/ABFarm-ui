@@ -13,6 +13,7 @@ import { ProduceFormComponent } from './components/Produce/produce-form/produce-
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 import { OrderConfirmationComponent } from './components/merchandise/order-confirmation/order-confirmation.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {path: 'app-main', component: MainComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'contact', component:ContactComponent},
   {path: 'produce', component: ProduceFormComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
@@ -45,6 +47,7 @@ export const routingComponents = [
   OurFarmPageComponent,
   AnimalsComponent,
   ProjectsPageComponent,
+  ContactComponent,
   LambFormComponent,
   ProduceFormComponent,
   GlampingComponent,

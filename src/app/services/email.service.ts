@@ -1,7 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Contact } from '../common/contact';
 import { Purchase } from '../common/purchase';
+
+const httpOptionsPlain = {
+  headers: new HttpHeaders({
+    'Accept': 'text/plain',
+    'Content-Type': 'text/plain'
+  }),
+  'responseType': 'text'
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +29,9 @@ export class EmailService {
   sendEmail(){
     return this.httpClient.post(this.emailUrl+"/sendEmail","Hello");
   }
+
+  sendContactEmail(contact: Contact): Observable<any>{
+    return this.httpClient.post<Contact>(this.emailUrl+"/sendContactEmail", contact);
+  }
+
 }
