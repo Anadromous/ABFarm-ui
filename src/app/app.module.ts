@@ -17,7 +17,6 @@ import { CategoryMenuComponent } from './components/category-menu/category-menu.
 import { ProductDetailsComponent } from './components/merchandise/product-details/product-details.component';
 import { CartStatusComponent } from './components/merchandise/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/merchandise/cart-details/cart-details.component';
-import { ContactUsComponent } from './components/our-farm-page/contact-us/contact-us.component';
 import { CheckoutComponent } from './components/merchandise/checkout/checkout.component';
 import { LoginStatusComponent } from './components/security/login-status/login-status.component';
 import { ProduceService } from './services/produce.service';
@@ -42,7 +41,6 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
     ProductDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
-    ContactUsComponent,
     CheckoutComponent,
     LoginStatusComponent,
     LambFormComponent,
