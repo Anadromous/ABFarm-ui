@@ -42,10 +42,6 @@
         -ms-flex-direction: column;
             flex-direction: column;
     padding: 30px;
-    -webkit-transition: opacity 500ms ease, -webkit-transform 500ms ease;
-    transition: opacity 500ms ease, -webkit-transform 500ms ease;
-    transition: transform 500ms ease, opacity 500ms ease;
-    transition: transform 500ms ease, opacity 500ms ease, -webkit-transform 500ms ease;
     -webkit-transform: translateY(40%);
             transform: translateY(40%);
     opacity: 0;
