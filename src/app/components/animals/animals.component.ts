@@ -12,5 +12,4 @@ export class AnimalsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

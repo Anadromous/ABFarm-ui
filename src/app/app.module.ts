@@ -24,6 +24,9 @@ import { LambFormComponent } from './components/Produce/lamb-form/lamb-form.comp
 import { ProduceFormComponent } from './components/Produce/produce-form/produce-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderConfirmationComponent } from './components/merchandise/order-confirmation/order-confirmation.component';
+import { AboutSheepComponent } from './components/animals/about-sheep/about-sheep.component';
+import { AboutGoatsComponent } from './components/animals/about-goats/about-goats.component';
+import { AboutLlamasComponent } from './components/animals/about-llamas/about-llamas.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
     LoginStatusComponent,
     LambFormComponent,
     ProduceFormComponent,
-    OrderConfirmationComponent    
+    OrderConfirmationComponent,
+    AboutSheepComponent,
+    AboutGoatsComponent,
+    AboutLlamasComponent    
   ],
   imports: [
     BrowserModule,
@@ -58,4 +64,6 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
   providers: [ProductService,ProduceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
