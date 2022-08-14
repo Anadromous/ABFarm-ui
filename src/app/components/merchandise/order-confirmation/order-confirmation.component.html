@@ -1,36 +1,46 @@
 <div class="container">
     <div class="main-content cart-details">
         <div class="section-content section-content-p30">
+            <form  (ngSubmit)="onSubmit()">
             <div class="container-fluid">
                 <div *ngIf="cartItems.length > 0">
+                    <div style="text-align: justify;">
+                        <h4>Thank you for your order.<br></h4>
+                        <p>Below are your order details.<br></p>
+                        <p>You will also be receiving a confirmation email with your order details.</p>
+                    </div>
                     <table class="table table-bordered">
                         <tr>
-                            <th width="50%">Product Detail</th>
-                            <th width="30%"></th>
+                            <th width="25%">Product</th>
+                            <th width="25%">Unit Price</th>
+                            <th width="25%">Quantity</th>
+                            <th width="25%">Subtotal</th>
                         </tr>
                         <tr *ngFor="let tempCartItem of cartItems">
                             <td>
                                 <p>{{ tempCartItem.name }}</p>
+                            </td>
+                            <td>
                                 <p>{{ tempCartItem.unitPrice | currency:'USD' }}</p>
                             </td>
-                            <div class="items">
-                                <label>Quantity</label>
-                                <div class="row no-gutters">
-                                    <div class="col ml-4 mr-3">
+                            <td>
                                         {{ tempCartItem.quantity }}
-                                    </div>
-                                    
-                                    <div class="col-8"></div>
-                                </div>
-                            </div>
-                            <p class="mt-2">SubTotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:
-                                'USD'}}
-                            </p>
+                            </td>
+                            <td>
+                                <p class="mt-2">Total: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:'USD'}}
+                                </p>
+                            </td>
                         </tr>
-                       
+                       <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="font-weight:bold">Total: {{ totalPrice }}</td>
+                       </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td style="font-weight: bold;">
+                                <button type="submit" class="btn btn-info">Close</button>
                             </td>
                             <td>&nbsp;</td>
                         </tr>
@@ -40,6 +50,7 @@
                     Your Cart is Empty.
                 </div>
             </div>
+        </form>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { Order } from './order';
 import { OrderItem } from './order-item';
 
 export class Purchase {
+    orderId: number;
     customer: Customer;
     shippingAddress: Address;
     billingAddress: Address;

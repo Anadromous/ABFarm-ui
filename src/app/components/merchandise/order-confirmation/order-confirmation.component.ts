@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/common/cart-item';
 import { CartService } from 'src/app/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -13,7 +14,7 @@ export class OrderConfirmationComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.listCartDetails();
@@ -21,7 +22,7 @@ export class OrderConfirmationComponent implements OnInit {
 
   listCartDetails() {
 
-    // get a handle to the cart items
+    // get a handle to the cart itemsthis.router.navigateByUrl("/order-confirmation");this.router.navigateByUrl("/order-confirmation");this.router.navigateByUrl("/order-confirmation");
     this.cartItems = this.cartService.cartItems;
 
     // subscribe to the cart totalPrice
@@ -36,6 +37,15 @@ export class OrderConfirmationComponent implements OnInit {
 
     // compute cart total price and quantity
     this.cartService.computeCartTotals();
+  }
+
+  onSubmit(){
+        
+    // reset cart data
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+    this.router.navigateByUrl("/cart-details");
   }
 
 }

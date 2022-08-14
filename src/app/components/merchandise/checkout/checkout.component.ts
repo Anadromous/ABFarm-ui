@@ -221,11 +221,14 @@ export class CheckoutComponent implements OnInit {
     // populate purchase - order and orderItems
     purchase.order = order;
     purchase.orderItems = orderItems;
+    for (let i=0; i < purchase.orderItems.length; i++) {
+      console.log("Order item from purchase: :"+purchase.orderItems[i].productId);
+    }
 
     // call REST API via the CheckoutService
     this.checkoutService.placeOrder(purchase).subscribe({
       next: response => {
-        alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+        purchase.orderId = response.orderTrackingNumber;
         this.resetCart();
         this.sendConfirmationEmail(purchase);
       },
@@ -245,7 +248,6 @@ export class CheckoutComponent implements OnInit {
     console.log("Order number: "+purchase.order.totalPrice);
     this.emailService.sendConfirmationEmail(purchase).subscribe({
       next: response => {
-        alert(`Thank you  you will receive an email shortly.`);
         this.resetCart();
       },
       error: err => {
@@ -258,9 +260,9 @@ export class CheckoutComponent implements OnInit {
   resetCart() {
     this.router.navigateByUrl("/order-confirmation");
     // reset cart data
-    this.cartService.cartItems = [];
-    this.cartService.totalPrice.next(0);
-    this.cartService.totalQuantity.next(0);
+    //this.cartService.cartItems = [];
+    //this.cartService.totalPrice.next(0);
+    //this.cartService.totalQuantity.next(0);
     // reset the form
     this.checkoutFormGroup.reset();
   }

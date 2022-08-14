@@ -58,15 +58,7 @@ export class LambFormComponent implements OnInit {
     produce.unitsInStock--;
     produce.quantity = +produce.quantity || 0;
     produce.quantity++;
-    /*if(Number.isNaN(produce.quantity)){
-      console.log("==>It is not a NaN");
-      produce.quantity = +produce.quantity || 0;
-      produce.quantity++;
-    }else{
-      console.log("==>Wait, it is a NaN");
-      produce.quantity = +produce.quantity || 0;
-      produce.quantity++;
-    }*/
+    
     let product: Product = this.convertProduceToProduct(produce);
     console.log("Adding item to cart " + product.name);
     console.log("ItemCount: ==> " + produce.quantity);
