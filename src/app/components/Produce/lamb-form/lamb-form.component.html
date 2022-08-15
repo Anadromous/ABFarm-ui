@@ -28,7 +28,7 @@
     </div>
      <div class="row gy-3 border" *ngFor="let tempProduce of produces">
         <div class="col-md-3 border">
-            {{ tempProduce.name}} - {{ tempProduce.description }}
+            {{ tempProduce.name}} - {{ tempProduce.categoryId }}
         </div>
         <div class="col-md-1 border">
             Price/lb.: {{ tempProduce.unitPrice | currency:'USD'}}
@@ -37,7 +37,7 @@
             Lb./Pckge: {{ tempProduce.unitPounds }}
         </div>
         <div class="col-md-2 border">
-            Amt. in Stock: {{ tempProduce.unitsInStock }}
+            Amt. Available: {{ tempProduce.unitsInStock }}
         </div>    
 
         <div class="col-md-2 border" style="text-align: right;">

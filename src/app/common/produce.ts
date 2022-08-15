@@ -10,6 +10,6 @@ export class Produce {
     unitsInStock!: number;
     dateCreated!: Date;
     lastUpdate!: Date; 
-    category!: string;
+    categoryId!: string;
     quantity:number = +0;
 }

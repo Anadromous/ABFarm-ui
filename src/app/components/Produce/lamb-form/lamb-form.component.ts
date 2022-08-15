@@ -38,7 +38,7 @@ export class LambFormComponent implements OnInit {
   }
 
   listProduces() {
-    this.produceService.getProduceList(1).subscribe(
+    this.produceService.getProduceList(51).subscribe(
       data => {
         this.produces = data;
       }
@@ -80,7 +80,7 @@ export class LambFormComponent implements OnInit {
     product.unitsInStock = produce.unitsInStock;
     product.dateCreated = produce.dateCreated;
     product.lastUpdate = produce.lastUpdate;
-    product.category = produce.category;
+    product.categoryId = produce.categoryId;
     return product;
   }
 

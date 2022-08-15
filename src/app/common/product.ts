@@ -12,5 +12,5 @@ export class Product {
     unitsInStock!: number;;
     dateCreated!: Date;;
     lastUpdate!: Date;
-    category!: string;
+    categoryId!: string;
 }
