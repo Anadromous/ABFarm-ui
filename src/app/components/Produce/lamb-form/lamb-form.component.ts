@@ -58,10 +58,12 @@ export class LambFormComponent implements OnInit {
     produce.unitsInStock--;
     produce.quantity = +produce.quantity || 0;
     produce.quantity++;
+    produce.categoryId = "51";
     
     let product: Product = this.convertProduceToProduct(produce);
     console.log("Adding item to cart " + product.name);
     console.log("ItemCount: ==> " + produce.quantity);
+    console.log("Product category id: "+product.categoryId)
     const cartItem = new CartItem(product);
     this.cartService.addToCart(cartItem);
   }

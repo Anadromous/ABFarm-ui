@@ -27,14 +27,17 @@
         <span class="border-bottom border-secondary">&nbsp;</span>
     </div>
      <div class="row gy-3 border" *ngFor="let tempProduce of produces">
-        <div class="col-md-3 border">
-            {{ tempProduce.name}} - {{ tempProduce.categoryId }}
+        <div class="col-md-1 border">
+            <img src="{{ tempProduce.imageUrl }}" class="img-responsive" width="75px" />
+        </div>
+        <div class="col-md-2 border">
+            {{ tempProduce.name}}
         </div>
         <div class="col-md-1 border">
-            Price/lb.: {{ tempProduce.unitPrice | currency:'USD'}}
+            Price/ lb.: {{ tempProduce.unitPrice | currency:'USD'}}
         </div>
         <div class="col-md-1 border">
-            Lb./Pckge: {{ tempProduce.unitPounds }}
+            Lb./ Pckge: {{ tempProduce.unitPounds }}
         </div>
         <div class="col-md-2 border">
             Amt. Available: {{ tempProduce.unitsInStock }}
@@ -65,10 +68,10 @@
 <div class="container" style="width:70%">
     <div class="row">
         <div class="col-6">
-            <h3>Half Lamb</h3>
+            <h3>Whole and Half Lamb</h3>
         </div>
         <div class="col-sm">
-
+            <p>We are not processing whole or half lambs at this time.</p>
         </div>
         <div class="col-sm">
 

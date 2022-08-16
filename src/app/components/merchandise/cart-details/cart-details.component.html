@@ -15,6 +15,7 @@
                             </td>
                             <td>
                                 <p>{{ tempCartItem.name }}</p>
+                                <p>{{ tempCartItem.description }}</p>
                                 <p>{{ tempCartItem.unitPrice | currency:'USD' }}</p>
                             </td>
                             <div class="items">
@@ -39,7 +40,7 @@
                                 </div>
                             </div>
                             <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm">Remove</button>
-                            <p class="mt-2">SubTotal: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:'USD'}}
+                            <p class="mt-2">SubTotal: {{ (tempCartItem.quantity * tempCartItem.unitPrice|currency:'USD')}}
                             </p>
                         </tr>
                         <tr>

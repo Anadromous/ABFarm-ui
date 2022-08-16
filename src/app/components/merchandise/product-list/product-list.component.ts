@@ -40,6 +40,8 @@ export class ProductListComponent implements OnInit {
 
   addToCart(theProduct: Product){
     console.log("Adding item to cart "+theProduct.name);
+    theProduct.categoryId = this.currentCategoryId.toString();
+    console.log("====>Category ID: "+theProduct.categoryId);
     const cartItem = new CartItem(theProduct);
     this.cartService.addToCart(cartItem);
   }
