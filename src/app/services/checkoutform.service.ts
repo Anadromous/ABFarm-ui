@@ -4,14 +4,15 @@ import { Observable, of } from 'rxjs';
 import { Country } from '../common/country';
 import { map } from 'rxjs/operators';
 import { State } from '../common/state';
+import { GlobalConfigModule } from '../global-config/global-config.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutformService {
 
-  private countriesUrl = "http://localhost:8080/api/countries";
-  private statesUrl = "http://localhost:8080/api/states";
+  private countriesUrl = GlobalConfigModule.appUrl+'/api/countries';
+  private statesUrl = GlobalConfigModule.appUrl+'/api/states';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -8,7 +8,6 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./category-menu.component.scss']
 })
 export class CategoryMenuComponent implements OnInit {
-  isCollapsed = false;
   productCategories!: ProductCategory[];
     
   constructor(private productService: ProductService) { }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contact } from '../common/contact';
 import { Purchase } from '../common/purchase';
+import { GlobalConfigModule } from '../global-config/global-config.module';
 
 const httpOptionsPlain = {
   headers: new HttpHeaders({
@@ -18,7 +19,7 @@ const httpOptionsPlain = {
 })
 export class EmailService {
 
-  private emailUrl = 'http://localhost:8080/api';
+  private emailUrl = GlobalConfigModule.appUrl+'/api';
 
   constructor(private httpClient: HttpClient) { }
 

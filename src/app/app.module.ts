@@ -51,7 +51,7 @@ import { AboutLlamasComponent } from './components/animals/about-llamas/about-ll
     OrderConfirmationComponent,
     AboutSheepComponent,
     AboutGoatsComponent,
-    AboutLlamasComponent    
+    AboutLlamasComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Purchase } from '../common/purchase';
+import { GlobalConfigModule } from '../global-config/global-config.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  private purchaseUrl = 'http://localhost:8080/api/checkout/purchase';
+  private purchaseUrl = GlobalConfigModule.appUrl+'/api/checkout/purchase';
 
   constructor(private httpClient: HttpClient) { }
 

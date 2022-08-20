@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Produce } from '../common/produce';
 import { ProduceCategory } from '../common/produce-category';
+import { GlobalConfigModule } from '../global-config/global-config.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProduceService {
-
-  private baseUrl = 'http://localhost:8080/api/produces';
-  private categoryUrl = 'http://localhost:8080/api/produce-category';
+  
+  private baseUrl = GlobalConfigModule.appUrl+'/api/produces';
+  private categoryUrl = GlobalConfigModule.appUrl+'/api/produce-category';
 
   constructor(private httpClient: HttpClient) { }
 
