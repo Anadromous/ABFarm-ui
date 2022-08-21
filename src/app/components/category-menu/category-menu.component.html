@@ -1,7 +1,7 @@
 <ul class="list-unstyled navbar-list">
     <li *ngFor="let tempProductCategory of productCategories">
         <a routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active"
-            class="nav-item nav-link active" style="color:black">
+        (click)="isCollapsed = true" class="nav-item nav-link active" style="color:black">
             {{ tempProductCategory.categoryName }}
         </a>
     </li>

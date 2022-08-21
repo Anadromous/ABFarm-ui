@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCategory } from 'src/app/common/product-category';
+import { GlobalConfigModule } from 'src/app/global-config/global-config.module';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class CategoryMenuComponent implements OnInit {
   productCategories!: ProductCategory[];
-    
+  isCollapsed = GlobalConfigModule.isCollapsed; 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {

@@ -15,4 +15,5 @@ export class GlobalConfigModule {
     public static appName: string = "Apple Blossom Farm";
     public static appLogo: string = "assets/images/logo.png";
     public static appEmail: string = "appleblossomfarmfg@gmail.com";
+    public static isCollapsed = false;
 }
