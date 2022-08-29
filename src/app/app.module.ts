@@ -27,6 +27,9 @@ import { OrderConfirmationComponent } from './components/merchandise/order-confi
 import { AboutSheepComponent } from './components/animals/about-sheep/about-sheep.component';
 import { AboutGoatsComponent } from './components/animals/about-goats/about-goats.component';
 import { AboutLlamasComponent } from './components/animals/about-llamas/about-llamas.component';
+import { FarmProjectsComponent } from './components/projects-page/farm-projects/farm-projects.component';
+import { HouseProjectsComponent } from './components/projects-page/house-projects/house-projects.component';
+import { FieldProjectsComponent } from './components/projects-page/field-projects/field-projects.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import { AboutLlamasComponent } from './components/animals/about-llamas/about-ll
     AboutSheepComponent,
     AboutGoatsComponent,
     AboutLlamasComponent,
+    FarmProjectsComponent,
+    HouseProjectsComponent,
+    FieldProjectsComponent,
   ],
   imports: [
     BrowserModule,
