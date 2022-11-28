@@ -27,7 +27,7 @@
                                         {{ tempCartItem.quantity }}
                             </td>
                             <td>
-                                <p class="mt-2">Total: {{ tempCartItem.quantity * tempCartItem.unitPrice | currency:'USD'}}
+                                <p class="mt-2">Total: {{ (tempCartItem.quantity * tempCartItem.unitPrice * tempCartItem.unitPounds |currency:'USD')}}
                                 </p>
                             </td>
                         </tr>
@@ -35,7 +35,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td style="font-weight:bold">Total: {{ totalPrice }}</td>
+                        <td style="font-weight:bold">Total: {{ totalPrice |currency:'USD' }}</td>
                        </tr>
                         <tr>
                             <td colspan="2"></td>

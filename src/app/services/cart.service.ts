@@ -41,12 +41,11 @@ export class CartService {
   }
 
   computeCartTotals() {
-
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
 
     for (let currentCartItem of this.cartItems) {
-      totalPriceValue += currentCartItem.quantity * currentCartItem.unitPrice;
+      totalPriceValue += currentCartItem.quantity * (currentCartItem.unitPrice * currentCartItem.unitPounds);
       totalQuantityValue += currentCartItem.quantity;
     }
 
@@ -62,7 +61,7 @@ export class CartService {
 
     console.log('Contents of the cart');
     for (let tempCartItem of this.cartItems) {
-      const subTotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
+      const subTotalPrice = tempCartItem.quantity * (tempCartItem.unitPrice * tempCartItem.unitPounds);
       console.log(`name: ${tempCartItem.name}, quantity=${tempCartItem.quantity}, unitPrice=${tempCartItem.unitPrice}, subTotalPrice=${subTotalPrice}`);
       console.log(`Category ID: ${tempCartItem.categoryId}`);
     }
