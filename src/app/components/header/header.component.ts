@@ -11,7 +11,7 @@ import { GlobalConfigModule } from 'src/app/global-config/global-config.module';
 })
 export class HeaderComponent implements OnInit {
   //isCollapsed = false;
-  isCollapsed = GlobalConfigModule.isCollapsed;
+  //isCollapsed = GlobalConfigModule.isCollapsed;
   constructor() { 
   }
 

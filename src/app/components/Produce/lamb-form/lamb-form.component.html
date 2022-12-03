@@ -48,30 +48,39 @@
         <div class="col-md-1 border">
             Lbs./ Pckge: {{ tempProduce.unitPounds }}
         </div>
-        <div class="col-md-2 border">
-            Amt. Available: {{ tempProduce.unitsInStock }}
+<!--
+        <div *ngIf="'{{tempProduce.unitsInStock  < 0}}'; else elseBlock">
+            <p>Good morning to you</p>
+            </div>
+            <ng-template #elseBlock>No greeting, Lagbaja nothing for you.</ng-template>
+ -->
+        <div class="col-md-2 border" *ngIf="tempProduce.unitsInStock  > 0; else elseBlock">
+            Amt. Available: {{tempProduce.unitsInStock }}
         </div>    
-
-        <div class="col-md-2 border" style="text-align: right;">
+        <ng-template #elseBlock>
+            <div class="col-md-2 border">
+            Sold Out
+        </div>
+        </ng-template>
+        <div class="col-md-2 border" style="text-align: right;" *ngIf="tempProduce.unitsInStock  > 0; else elseBlock">
             <label>Add to Cart&nbsp;</label>
             <button class="fa-solid fa-square-plus" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
-        <br>            
+            <br>            
             <label>Remove from Cart&nbsp;</label>
             <button style="text-align: right;" class="fa-solid fa-square-minus" aria-hidden="true" (click)="remove(tempProduce)"></button>
         </div>
-        <div class="col-md-3 border" *ngIf="'{{tempProduce.quantity}}>0 && {{tempProduce.quantity}} != null'; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>
+        <ng-template #elseBlock>
+            <div class="col-md-2 border">
+            Sold Out
+        </div>
+        </ng-template>
+        <div class="col-md-3 border">
                 <div class="col-md-1">
                     <p>Quantity: {{ tempProduce.quantity }}</p>
                 </div>
-            </ng-template>
-            <ng-template #elseBlock>
-                <div class="col-md-1 border">
-                    <p>0</p>
-                </div>
-            </ng-template>
+            </div>
         <span class="border-bottom border"></span>
-    </div>
+    
 </div>
 
 <div class="container" style="width:70%">
