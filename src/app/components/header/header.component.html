@@ -1,33 +1,45 @@
 <div class="container">
     <nav class="navbar navbar-expand-md  navbar-dark red">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav" aria-controls="myNav" aria-expanded="false" 
+        <!--
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNav" aria-expanded="false"
+            aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+            aria-controls="myNav">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        From: https://stackoverflow.com/questions/68604559/bootstrap-5-navbar-toggle-button-not-working
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" 
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button> 
         <div class="collapse navbar-collapse" id="myNav">
-            <ul class="navbar-nav">
+            <div class="navbar-nav m-auto">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- <li class="nav-item">
                     <img src="/assets/icons/blosssom-transparent.png" height="50" width="50"  
                     alt="image">
                 </li> -->
                 <li class="nav-item">
-                    <a routerLink="/app-main" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Home</a>
+                    <a routerLink="/app-main" routerLinkActive="active" class="nav-link">Home</a>
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
                 <li class="nav-item">
-                    <a routerLink="/our-farm" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Our Story</a>
+                    <a routerLink="/our-farm" routerLinkActive="active" class="nav-link">Our Story</a>
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
                 <li class="nav-item">
-                    <a routerLink="/animals" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Animals</a>
+                    <a routerLink="/animals" routerLinkActive="active" class="nav-link">Animals</a>
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
                 <li class="nav-item">
-                    <a routerLink="/projects" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Projects</a>
+                    <a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a>
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
                 <li class="nav-item">
-                    <a routerLink="/glamping" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Farm
+                    <a routerLink="/glamping" routerLinkActive="active" class="nav-link">Farm
                         Stay</a>
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
@@ -41,10 +53,11 @@
                 </li>
                 <div class="sticky-top hidden-spacer"> </div>
                 <li class="nav-item">
-                    <a routerLink="/order-lamb" routerLinkActive="active" (click)="isCollapsed = true" class="nav-link">Order
-                        Lamb</a>
+                    <a routerLink="/order-lamb" routerLinkActive="active" class="nav-link">Order Lamb</a>
                 </li>
             </ul>
+        </div>
+        <!--from Nav Links: (click)="isCollapsed = true" -->
         </div>
         <div class="float-right">
             <app-cart-status></app-cart-status>

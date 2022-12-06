@@ -1,90 +1,197 @@
 <div class="container" style="width:70%; text-align: justify;">
+
     <p style="padding-top: 150px;">Welcome to the lamb order form page. All of our lamb is 100% grass fed and we
+
         never use hormones or growth supplements.
+
         <br>You can purchase lamb by the piece or whole.
+
         <br>Payment is accepted by cash, check, credit card, Zelle (by way of 503-449-0882) or through friends and family PayPal
+
         account via appleblossomfarmfg@gmail.com.
+
         <br>Whole and half lambs are $9/lb,
+
         please check below for availability.</p>
+
 </div>
+
 <!--begin form -->
+
 <div class="container" style="width:80%">
+
     <h1>Lamb Order Form</h1>
+
     <div class="row">
+
         <div class="col-12">
+
             <h3>Individual Cuts</h3>
+
         </div>
+
     </div>
+
     <span class="border-bottom border-secondary"></span>
+
     <div class="row">
+
         <div class="col-3"></div>
+
         <div class="col-3"></div>
+
         <div class="col-6">
+
             <div>
+
                 <app-cart-status></app-cart-status>
+
             </div>
+
         </div>
+
     </div>
+
     <div class="row">
+
         <div class="col-3"></div>
+
         <div class="col-3"></div>
+
         <div class="col-6">
+
             <div>
+
                 Click on cart to checkout
+
             </div>
+
         </div>
+
         <span class="border-bottom border-secondary">&nbsp;</span>
+
     </div>
+
      <div class="row gy-3" *ngFor="let tempProduce of produces">
+
         <div class="col-md-1 border">
+
             <img src="{{ tempProduce.imageUrl }}" class="img-responsive" width="75px" />
+
         </div>
+
         <div class="col-md-2 border">
+
             {{ tempProduce.name}}
+
         </div>
+
         <div class="col-md-1 border">
+
             Price/ lb.: {{ tempProduce.unitPrice | currency:'USD'}}
+
         </div>
+
         <div class="col-md-1 border">
+
             Lbs./ Pckge: {{ tempProduce.unitPounds }}
+
         </div>
-        <div class="col-md-2 border">
-            Amt. Available: {{ tempProduce.unitsInStock }}
+
+<!--
+
+        <div *ngIf="'{{tempProduce.unitsInStock  < 0}}'; else elseBlock">
+
+            <p>Good morning to you</p>
+
+            </div>
+
+            <ng-template #elseBlock>No greeting, Lagbaja nothing for you.</ng-template>
+
+ -->
+
+        <div class="col-md-2 border" *ngIf="tempProduce.unitsInStock  > 0; else elseBlock">
+
+            Amt. Available: {{tempProduce.unitsInStock }}
+
         </div>    
 
-        <div class="col-md-2 border" style="text-align: right;">
-            <label>Add to Cart&nbsp;</label>
-            <button class="fa-solid fa-square-plus" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
-        <br>            
-            <label>Remove from Cart&nbsp;</label>
-            <button style="text-align: right;" class="fa-solid fa-square-minus" aria-hidden="true" (click)="remove(tempProduce)"></button>
+        <ng-template #elseBlock>
+
+            <div class="col-md-2 border">
+
+            Sold Out
+
         </div>
-        <div class="col-md-3 border" *ngIf="'{{tempProduce.quantity}}>0 && {{tempProduce.quantity}} != null'; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>
+
+        </ng-template>
+
+        <div class="col-md-2 border" style="text-align: right;" *ngIf="tempProduce.unitsInStock  > 0; else elseBlock">
+
+            <label>Add to Cart&nbsp;</label>
+
+            <button class="fa-solid fa-square-plus" aria-hidden="false" (click)= "addToCart(tempProduce)"></button>
+
+            <br>            
+
+            <label>Remove from Cart&nbsp;</label>
+
+            <button style="text-align: right;" class="fa-solid fa-square-minus" aria-hidden="true" (click)="remove(tempProduce)"></button>
+
+        </div>
+
+        <ng-template #elseBlock>
+
+            <div class="col-md-2 border">
+
+            Sold Out
+
+        </div>
+
+        </ng-template>
+
+        <div class="col-md-3 border">
+
                 <div class="col-md-1">
+
                     <p>Quantity: {{ tempProduce.quantity }}</p>
+
                 </div>
-            </ng-template>
-            <ng-template #elseBlock>
-                <div class="col-md-1 border">
-                    <p>SOLD OUT</p>
-                </div>
-            </ng-template>
+
+            </div>
+
         <span class="border-bottom border"></span>
-    </div>
+
+   
+
 </div>
 
+ 
+
 <div class="container" style="width:70%">
+
     <div class="row">
+
         <div class="col-6">
+
             <h3>Whole and Half Lamb</h3>
-        </div>
-        <div class="col-sm">
-            <p>Whole and half lambs are $9/lb. Please contact us for details.</p>
-        </div>
-        <div class="col-sm">
 
         </div>
+
+        <div class="col-sm">
+
+            <p>Whole and half lambs are $9/lb. Please contact us for details.</p>
+
+        </div>
+
+        <div class="col-sm">
+
+ 
+
+        </div>
+
         <span class="border-bottom border-secondary"></span>
+
     </div>
+
 </div>
