@@ -7,6 +7,7 @@
         <br>Whole and half lambs are $9/lb,
         please check below for availability.</p>
 </div>
+<div><p><b>We are not processing lamb at this time. Please check back for availability.</b></p></div>
 <!--begin form -->
 <div class="container" style="width:80%">
     <h1>Lamb Order Form</h1>
@@ -48,12 +49,6 @@
         <div class="col-md-1 border">
             Lbs./ Pckge: {{ tempProduce.unitPounds }}
         </div>
-<!--
-        <div *ngIf="'{{tempProduce.unitsInStock  < 0}}'; else elseBlock">
-            <p>Good morning to you</p>
-            </div>
-            <ng-template #elseBlock>No greeting, Lagbaja nothing for you.</ng-template>
- -->
         <div class="col-md-2 border" *ngIf="tempProduce.unitsInStock  > 0; else elseBlock">
             Amt. Available: {{tempProduce.unitsInStock }}
         </div>    
@@ -89,7 +84,7 @@
             <h3>Whole and Half Lamb</h3>
         </div>
         <div class="col-sm">
-            <p>Whole and half lambs are $9/lb. Please contact us for details.</p>
+            <p>Whole and half lambs are $9/lb. Please contact us via email ( appleblossomfarmfg@gmail.com ), or phone ( 503-449-0882 )for details.</p>
         </div>
         <div class="col-sm">
 
