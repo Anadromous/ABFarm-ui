@@ -6,10 +6,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#myNav" aria-controls="myNav" 
+            aria-expanded="false" aria-label="Toggle navigation" 
+            (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
             <span class="navbar-toggler-icon"></span>
         </button> 
-        <div class="navbar-collapse collapse" id="myNav">
+        <div class="navbar-collapse collapse" id="myNav" class.collapse="isCollapsed">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a routerLink="/app-main" routerLinkActive="active" aria-current="page" class="nav-link active">Home</a>
