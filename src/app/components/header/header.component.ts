@@ -10,7 +10,7 @@ import { GlobalConfigModule } from 'src/app/global-config/global-config.module';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  //isCollapsed = false;
+  isCollapsed = false;
   //isCollapsed = GlobalConfigModule.isCollapsed;
   constructor() { 
   }
