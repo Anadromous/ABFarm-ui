@@ -30,6 +30,7 @@ import { AboutLlamasComponent } from './components/animals/about-llamas/about-ll
 import { FarmProjectsComponent } from './components/projects-page/farm-projects/farm-projects.component';
 import { HouseProjectsComponent } from './components/projects-page/house-projects/house-projects.component';
 import { FieldProjectsComponent } from './components/projects-page/field-projects/field-projects.component';
+import { SeasonsComponent } from './components/seasons/seasons.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { FieldProjectsComponent } from './components/projects-page/field-project
     FarmProjectsComponent,
     HouseProjectsComponent,
     FieldProjectsComponent,
+    SeasonsComponent
   ],
   imports: [
     BrowserModule,

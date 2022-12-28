@@ -20,6 +20,8 @@ import { AboutLlamasComponent } from './components/animals/about-llamas/about-ll
 import { FarmProjectsComponent } from './components/projects-page/farm-projects/farm-projects.component';
 import { HouseProjectsComponent } from './components/projects-page/house-projects/house-projects.component';
 import { FieldProjectsComponent } from './components/projects-page/field-projects/field-projects.component';
+import { SeasonsComponent } from './components/seasons/seasons.component';
+import { compileComponentFromMetadata } from '@angular/compiler';
 
 const routes: Routes = [
   {path: 'app-main', component: MainComponent},
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'app-farm-projects', component: FarmProjectsComponent},
   { path: 'app-house-projects', component: HouseProjectsComponent},
   { path: 'app-field-projects', component: FieldProjectsComponent},
+  { path: 'seasons', component: SeasonsComponent},
   {path: '', redirectTo: '/app-main', pathMatch: 'full'},
   {path: '**', redirectTo: '/app-main', pathMatch: 'full'}
   //{path: '**', component: PageNotFoundComponent}
@@ -71,5 +74,6 @@ export const routingComponents = [
   AboutLlamasComponent,
   FarmProjectsComponent,
   HouseProjectsComponent,
-  FieldProjectsComponent
+  FieldProjectsComponent,
+  SeasonsComponent
 ]

@@ -18,6 +18,7 @@ export class ProduceService {
   getProduceList(theCategoryId: number): Observable<Produce[]> {
 
     //URL based on category id. This is the endpoint exposed by Spring Rest
+    console.log("getProduceList: "+`${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`);
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
     return this.httpClient.get<GetResponseProduces>(searchUrl).pipe(
