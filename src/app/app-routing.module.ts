@@ -22,8 +22,22 @@ import { HouseProjectsComponent } from './components/projects-page/house-project
 import { FieldProjectsComponent } from './components/projects-page/field-projects/field-projects.component';
 import { SeasonsComponent } from './components/seasons/seasons.component';
 import { compileComponentFromMetadata } from '@angular/compiler';
+import {
+  OktaAuthModule, 
+  OktaCallbackComponent,
+  OKTA_CONFIG
+} from '@okta/okta-angular';
+import { OktaAuth} from '@okta/okta-auth-js';
+import appConfig from './config/app-config';
+import { LoginComponent } from './components/login/login.component';
+
+const oktaConfig = appConfig.oidc;
+const oktaAuth = new OktaAuth(oktaConfig);
 
 const routes: Routes = [
+  {path: 'login-callback', component: OktaCallbackComponent},
+  {path: 'login', component: LoginComponent},
+
   {path: 'app-main', component: MainComponent},
   {path: 'our-farm', component: OurFarmPageComponent},
   {path: 'animals', component: AnimalsComponent},

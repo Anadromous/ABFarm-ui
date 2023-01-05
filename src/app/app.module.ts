@@ -31,6 +31,13 @@ import { FarmProjectsComponent } from './components/projects-page/farm-projects/
 import { HouseProjectsComponent } from './components/projects-page/house-projects/house-projects.component';
 import { FieldProjectsComponent } from './components/projects-page/field-projects/field-projects.component';
 import { SeasonsComponent } from './components/seasons/seasons.component';
+import { LoginComponent } from './components/login/login.component';
+import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
+import appConfig from './config/app-config';
+import { OktaAuth } from '@okta/okta-auth-js';
+
+const oktaConfig = appConfig.oidc;
+const oktaAuth = new OktaAuth(oktaConfig);
 
 @NgModule({
   declarations: [
@@ -59,7 +66,8 @@ import { SeasonsComponent } from './components/seasons/seasons.component';
     FarmProjectsComponent,
     HouseProjectsComponent,
     FieldProjectsComponent,
-    SeasonsComponent
+    SeasonsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,9 +75,12 @@ import { SeasonsComponent } from './components/seasons/seasons.component';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    OktaAuthModule
   ],
-  providers: [ProductService,ProduceService],
+  providers: [ProductService,
+    ProduceService,
+  {provide: OKTA_CONFIG, useValue: {  oktaAuth }}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
